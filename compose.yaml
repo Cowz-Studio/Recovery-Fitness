@@ -7,8 +7,11 @@ services:
     ports:
       - "5173:5173"
     volumes:
-      - ./frontend:/app
-    command: npm run dev
+      - type: bind
+        source: ./frontend
+        target: /app
+      - /app/node_modules
+    command: pnpm run dev
 
   backend:
     build:
@@ -17,7 +20,9 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend:/app
+      - type: bind
+        source: ./backend
+        target: /app
     command: poetry run python manage.py runserver 0.0.0.0:8000
     environment:
       - PYTHONUNBUFFERED=1
