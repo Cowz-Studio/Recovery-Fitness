@@ -1,11 +1,14 @@
-# React + TypeScript + Vite
+# Running the application
+- Make sure that you have pnpm installed on your system globally. You may need to install pnpm via npm after installing node.js
+For the front end, run, in order:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```cd frontend```
+```pnpm i ```
+```pnpm run dev```
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- For the backend, you need to have docker daemon running. An easy way to do this is by installing docker desktop.
+To run the backend, run:
+```docker compose up --build```
 
 ## Expanding the ESLint configuration
 
