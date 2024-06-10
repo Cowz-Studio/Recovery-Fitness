@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "recovery-fitness",
+  "devDependencies": {
+    "turbo": "latest"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint"
+  },
+  "packageManager": "pnpm@9.1.4"
+}
