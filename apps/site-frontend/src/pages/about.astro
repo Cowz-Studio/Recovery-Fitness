@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 
 const pageTitle = "About Me!";
 
@@ -38,10 +40,7 @@ const skillColor = "navy";
     </style>
   </head>
   <body>
-    <a href="/">Home</a>
-	<a href="/about/">{pageTitle}</a>
-	<a href="/contact/">Contact</a>
-    <a href="/training_options/">Training Options</a>
+    <Navigation></Navigation>
 
     <h1>{pageTitle}</h1>
     
@@ -61,5 +60,7 @@ const skillColor = "navy";
     {happy && <p>I am happy to be learning Astro!</p>}
     {finished && <p>I finished this tutorial!</p>}
     {goal === 3 ? <p>My goal is to finish</p> : <p>My goal is not 3 days</p>}
+
+    <Footer></Footer>
   </body>
 </html>
