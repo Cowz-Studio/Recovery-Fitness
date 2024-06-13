@@ -1,7 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import Navigation from "../components/Navigation.astro";
 import '../styles/global.css';
-import '../styles/index.css'
+import '../styles/index/index.css'
 ---
 
 <html lang="en">
@@ -13,9 +14,13 @@ import '../styles/index.css'
     <title>Samuel Tseng </title>
   </head>
   <body>
-	<Navigation/>
+	<Navigation id="navbar-index"/>
 	<div id="hero">
-		<h1>Brand Slogan</h1>
+		<h1>RECOVER BACK TO YOUR PRIME</h1>
+		<video autoplay muted loop>
+			<source src="/videos/nike-demo.mp4" type="video/mp4">
+			Your browser does not support the video type
+		</video>
 	</div>
 	<div id="about">
 		<h1>ABOUT YOUR EXT PERSONAL TRAINER</h1>

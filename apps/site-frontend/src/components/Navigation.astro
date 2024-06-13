@@ -1,12 +1,14 @@
 ---
-import '../styles/navbar.css';
+import '../styles/navbar/navbar.css';
+import '../styles/navbar/navbar-index.css'
+const {id} = Astro.props;
 ---
-<nav id="navbar">
+<nav id={id ? id : 'navbar'}>
     <p>SAMUEL TSENG</p>
     <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/training_options/">Training Options</a></li>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/about/">ABOUT</a></li>
+        <li><a href="/contact/">CONTACT</a></li>
+        <li><a href="/training_options/">TRAINING</a></li>
     </ul>
 </nav>
