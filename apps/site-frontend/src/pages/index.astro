@@ -2,7 +2,8 @@
 import { Image } from "astro:assets";
 import Navigation from "../components/Navigation.astro";
 import '../styles/global.css';
-import '../styles/index/index.css'
+import '../styles/index/index.css';
+import '../styles/index/about.css';
 ---
 
 <html lang="en">
@@ -14,6 +15,8 @@ import '../styles/index/index.css'
     <title>Samuel Tseng </title>
   </head>
   <body>
+
+
 	<Navigation id="navbar-index"/>
 	<div id="hero">
 		<h1>RECOVER BACK TO YOUR PRIME</h1>
@@ -22,8 +25,16 @@ import '../styles/index/index.css'
 			Your browser does not support the video type
 		</video>
 	</div>
+
+
 	<div id="about">
-		<h1>ABOUT YOUR EXT PERSONAL TRAINER</h1>
+		<h1>ABOUT YOUR NEXT PERSONAL TRAINER</h1>
+		<div id="about_container">
+			<div id="about_h2">
+				<h2>Sam is a dedicated personal trainer who is excited and passionate about  helping his clients achieve a healthier lifestyle. Sam brings a wealth  of knowledge to his client whether they are beginners or regulars at the  gym. He specializes in strength and conditioning, weight loss and the  maintenance of fitness. He is currently utilizing his degree in Exercise  Sport Science, to assist him in making professionally tailored plans  for his client's success. Elevate Your Potential with Sam: Where Goals Become Gains!</h2>
+				<a href="/about"><button type="button">LEARN MORE</button></a>
+			</div>
+			<img src="/images/samuel_tseng_demo.jpg">
 	</div>
 	<div id="slider">
 		<h1>STRENGTH AND CONDITIONING</h1>

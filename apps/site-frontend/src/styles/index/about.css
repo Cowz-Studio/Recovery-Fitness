@@ -1,0 +1,47 @@
+#about {
+    display: grid;
+    place-items: center;
+    align-items: center;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+
+#about img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 5px 5px 15px rgb(175, 175, 175);
+}
+
+#about h2 {
+    font-weight:300;
+}
+
+#about h1 {
+    font-weight: 400;
+}
+
+#about_container {
+    display: flex;
+    align-items: center;
+    margin: 5vh;
+    
+}
+
+#about_h2 {
+    display: grid;
+    align-items: center;
+    place-items: center;
+    margin-right: 5vw;
+}
+
+#about button{
+    margin-top: 1rem;
+    background-color: #028391;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    border-radius: 5px;
+}

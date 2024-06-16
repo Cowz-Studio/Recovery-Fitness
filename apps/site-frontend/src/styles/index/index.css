@@ -28,14 +28,6 @@
     z-index: -1;
 }
 
-#about {
-    display: grid;
-    place-items: center;
-    align-items: center;
-    min-height: 100vh;
-    max-height: 100vh;
-}
-
 #slider {
     display: grid;
     place-items: center;
