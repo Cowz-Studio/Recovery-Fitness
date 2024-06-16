@@ -1,12 +1,15 @@
+// biome-ignore lint/style/useNodejsImportProtocol: Biome is crying
 import path from 'path'
 
-import { payloadCloud } from '@payloadcms/plugin-cloud'
-import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { webpackBundler } from '@payloadcms/bundler-webpack'
+import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { payloadCloud } from '@payloadcms/plugin-cloud'
 import { slateEditor } from '@payloadcms/richtext-slate'
 import { buildConfig } from 'payload/config'
 
 import Users from './collections/Users'
+import About from './globals/About'
+import Contact from './globals/Contact'
 
 export default buildConfig({
   admin: {
@@ -15,6 +18,7 @@ export default buildConfig({
   },
   editor: slateEditor({}),
   collections: [Users],
+  globals: [About, Contact],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },

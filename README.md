@@ -9,3 +9,6 @@ Make sure to do pnpm i to install the required dependencies.
 To run, simply type into terminal: turbo run dev
 In some cases, where you intend on using custom packages (which are defined in /packages folder), you'll need to do turbo run build first then turbo run dev, as this compiles the TS files in JS for use, after you 
 make changes to any packages.
+Could use mise en place to manage environmental variables
+
+Note that we should use SEO things such as plugins, etc
