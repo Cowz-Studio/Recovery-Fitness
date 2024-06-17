@@ -3,6 +3,11 @@ const {sliderText, sliderColor, sliderTime} =  Astro.props;
 
 ---
 
+<!--
+    This component no longer in use (Using React Component instead for client rendering)
+    Using TextSlider.jsx instead, refer to it for the text slider functionality
+ -->
+
 <div class="slider-container">
     <div class="text-slider">
         <p>{sliderText}</p>
@@ -32,6 +37,10 @@ const {sliderText, sliderColor, sliderTime} =  Astro.props;
         flex-shrink: 0;
         font-size: 96px;
         font-weight: bolder;
+    }
+
+    .text-slider p:hover {
+        color: white;
     }
 
     @keyframes slide {
