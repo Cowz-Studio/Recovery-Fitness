@@ -9,10 +9,10 @@
  * 
  */
 
+import type { RowLabelArgs } from 'payload/dist/admin/components/forms/RowLabel/types'
 import type { GlobalConfig } from 'payload/types'
 
 const About: GlobalConfig= {
-
   slug: 'about',
   label: 'About Content',
   fields: [
@@ -35,42 +35,63 @@ const About: GlobalConfig= {
       type: 'array',
       fields: [
         {
-          name: 'qualificationName',
+          name: 'title',
           type: 'text'
         },
         {
           name:'description',
           type: 'richText'
         }
-      ]
+      ],
+      admin:{
+        components:{
+          RowLabel: ({data, index}: RowLabelArgs) =>{
+            return data.title
+          }
+        },
+      },
     },
     {
       name: 'specialisations',
       type: 'array',
       fields: [
         {
-          name: 'specialisationName',
+          name: 'title',
           type: 'text'
         },
         {
           name:'description',
           type: 'richText'
         }
-      ]
+      ],
+      admin:{
+        components:{
+          RowLabel: ({data, index}: RowLabelArgs) =>{
+            return data.title
+          }
+        },
+      },
     },
     {
       name: 'focusAreas',
       type: 'array',
       fields: [
         {
-          name: 'focusAreaName',
+          name: 'title',
           type: 'text'
         },
         {
           name:'description',
           type: 'richText'
         }
-      ]
+      ],
+      admin:{
+        components:{
+          RowLabel: ({data, index}: RowLabelArgs) =>{
+            return data.title
+          }
+        },
+      },
     }
   ],
 }
