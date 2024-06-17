@@ -1,0 +1,55 @@
+---
+const {sliderText, sliderColor, sliderTime} =  Astro.props;
+
+---
+
+<div class="slider-container">
+    <div class="text-slider">
+        <p>{sliderText}</p>
+    </div>
+</div>
+
+<style>
+    .slider-container {
+        overflow: hidden;
+        padding: 10px 0;
+        display: flex;
+    }
+
+    .text-slider {
+        display: flex;
+        white-space: nowrap;
+        animation: 5s slide linear infinite;
+    }
+
+    .text-slider p {
+        margin-right: 50px;
+        flex-shrink: 0;
+        font-size: 96px;
+        font-weight: bold;
+    }
+
+    @keyframes slide {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const textSlider = document.querySelector(".text-slider");
+        if (textSlider) {
+            // Clone the content multiple times
+            for (let I = 0; I < 2; I++) {
+                const copy = textSlider.cloneNode(true);
+                document.querySelector(".slider-container")?.appendChild(copy);
+            }
+        }
+    });
+
+</script>
+
