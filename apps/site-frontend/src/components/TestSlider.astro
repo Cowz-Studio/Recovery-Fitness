@@ -9,24 +9,29 @@ const {sliderText, sliderColor, sliderTime} =  Astro.props;
     </div>
 </div>
 
-<style>
+<style define:vars={{sliderColor, sliderTime}}>
     .slider-container {
         overflow: hidden;
+        width: 100%;
         padding: 10px 0;
         display: flex;
+        align-items: center;
+        background-color: var(--sliderColor);
+        max-height: 25vh;
+        min-height: 25vh;
     }
 
     .text-slider {
         display: flex;
         white-space: nowrap;
-        animation: 5s slide linear infinite;
+        animation: var(--sliderTime) slide linear infinite;
     }
 
     .text-slider p {
         margin-right: 50px;
         flex-shrink: 0;
         font-size: 96px;
-        font-weight: bold;
+        font-weight: bolder;
     }
 
     @keyframes slide {
@@ -41,15 +46,16 @@ const {sliderText, sliderColor, sliderTime} =  Astro.props;
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const textSlider = document.querySelector(".text-slider");
-        if (textSlider) {
-            // Clone the content multiple times
-            for (let I = 0; I < 2; I++) {
-                const copy = textSlider.cloneNode(true);
-                document.querySelector(".slider-container")?.appendChild(copy);
+        const sliderContainers = document.querySelectorAll('.slider-container');
+        sliderContainers.forEach(sliderContainer => {
+            const textSlider = sliderContainer.querySelector(".text-slider");
+            if (textSlider) {
+                // Clone the content multiple times
+                for (let i = 0; i < 3; i++) {
+                    const copy = textSlider.cloneNode(true);
+                    sliderContainer.appendChild(copy);
+                }
             }
-        }
+        });
     });
-
 </script>
-
