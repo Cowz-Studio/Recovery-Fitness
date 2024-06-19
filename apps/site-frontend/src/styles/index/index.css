@@ -34,13 +34,6 @@
     max-height: 100vh;
 }
 
-#testimonies {
-    display: grid;
-    place-items: center;
-    align-items: center;
-    min-height: 100vh;
-    max-height: 100vh;
-}
 
 #socials {
     display: grid;

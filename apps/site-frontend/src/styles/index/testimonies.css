@@ -1,0 +1,39 @@
+#testimonies {
+    display: grid;
+    place-items: center;
+    align-items: center;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+
+#test-img {
+    width: 350px;
+    height: 350px;
+    border-radius: 5%;
+    object-fit: cover;
+    box-shadow: 5px 5px 15px rgb(175, 175, 175);
+}
+
+#testimony1 {
+    display: flex;
+    align-items: center;
+}
+
+#testimony2 {
+    display: flex;
+    align-items: center;
+}
+
+#test-text {
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+#testimonies p {
+    font-size: 26px;
+}
+
+#testimonies h1 {
+    font-size: 50px;
+}
