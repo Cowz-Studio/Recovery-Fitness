@@ -4,6 +4,9 @@
     align-items: center;
     padding: 0px 10px;
     position: relative;
+    background-color: #5FAB99;
+    padding: 30px 20px;
+    color: white;
 }
 
 #navbar .nav-links {
@@ -22,9 +25,9 @@
 
 #navbar .nav-links a {
     text-decoration: none;
-    color: black;
     margin-left: 20px;
     font-weight: lighter;
+    color: white;
 }
 
 #navbar p {
