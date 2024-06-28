@@ -15,12 +15,16 @@ import type { GlobalConfig } from 'payload/types'
 const About: GlobalConfig= {
   slug: 'about',
   label: 'About Content',
+  access: {
+    read: () => true,
+    update: () => true,
+  },
   fields: [
     {
       name: 'summaryAboutContent',
-      type: 'richText',
+      type: 'text',
       admin: {
-        description: 'The content for your home page'
+        description: 'The summary about content for your home page'
       }
     },
     {
