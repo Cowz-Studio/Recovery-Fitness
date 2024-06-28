@@ -1,10 +1,11 @@
 ---
-import { Image } from "astro:assets";
 import Navigation from "../components/Navigation.astro";
-import TextSlider from "../components/TextSlider"
+import TextSlider from "../components/TextSlider";
 import '../styles/global.css';
-import '../styles/index/index.css';
 import '../styles/index/about.css';
+import '../styles/index/index.css';
+
+const data = await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json());
 ---
 
 <html lang="en">
@@ -32,7 +33,7 @@ import '../styles/index/about.css';
 		<h1>ABOUT YOUR NEXT PERSONAL TRAINER</h1>
 		<div id="about_container">
 			<div id="about_h2">
-				<h2>Sam is a dedicated personal trainer who is excited and passionate about  helping his clients achieve a healthier lifestyle. Sam brings a wealth  of knowledge to his client whether they are beginners or regulars at the  gym. He specializes in strength and conditioning, weight loss and the  maintenance of fitness. He is currently utilizing his degree in Exercise  Sport Science, to assist him in making professionally tailored plans  for his client's success. Elevate Your Potential with Sam: Where Goals Become Gains!</h2>
+				<h2 set:text={data.summaryAboutContent}/>
 				<a href="/about"><button type="button">LEARN MORE</button></a>
 			</div>
 			<img src="/images/samuel_tseng_demo.jpg">

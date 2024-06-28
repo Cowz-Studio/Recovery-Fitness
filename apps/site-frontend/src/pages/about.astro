@@ -1,6 +1,9 @@
 ---
+import serialize from '../../../scripts/htmlConverter';
 import Navigation from '../components/Navigation.astro';
-import '../styles/global.css';
+import '../styles/about/about.css';
+
+const data =  await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json()); 
 ---
 
 <html lang="en">
@@ -13,10 +16,7 @@ import '../styles/global.css';
   </head>
   <body>
     <Navigation className=""/>
-
-    <h1>About Me</h1>
-    <h2>h2h2h2h2h2h2h2h2h</h2>
-    <p>Paragraph of text</p>
-    <p>Paragraph of text</p>
+    <div id="aboutContent" set:html={serialize(data.aboutContent)}/>
+    
   </body>
 </html>

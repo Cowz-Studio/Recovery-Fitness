@@ -32,4 +32,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI,
   }),
+  csrf:[
+    'http://localhost:4321/',
+  ]
 })
