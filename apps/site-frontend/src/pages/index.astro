@@ -2,12 +2,16 @@
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
 import TextSlider from "../components/TextSlider";
+import InstagramPosts from "../components/InstagramPosts";
 import '../styles/global.css';
 import '../styles/index/about.css';
 import '../styles/index/index.css';
 import '../styles/index/testimonies.css';
 
-const data = await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json());
+
+const accessToken = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
+
+//const data = await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json());
 ---
 
 <html lang="en">
@@ -35,7 +39,9 @@ const data = await fetch("http://localhost:3000/api/globals/about/").then((res) 
 		<h1>ABOUT YOUR NEXT PERSONAL TRAINER</h1>
 		<div id="about_container">
 			<div id="about_h2">
-				<h2 set:text={data.summaryAboutContent}/>
+				<!--
+					<h2 set:text={data.summaryAboutContent}/>
+				 -->
 				<a href="/about"><button type="button">LEARN MORE</button></a>
 			</div>
 			<img id="about-img" src="/images/samuel_tseng_demo.jpg">
@@ -67,7 +73,10 @@ const data = await fetch("http://localhost:3000/api/globals/about/").then((res) 
 		</div>
 	</div>
 	<div id="socials">
-		FOLLOW ME ON SOCIALS
+		<h1>FOLLOW ME ON SOCIAL MEDIA</h1>
+		<div id="social-media-area">
+			<InstagramPosts accessToken={accessToken} client:load></InstagramPosts>
+		</div>
 	</div>
 	<Footer></Footer>
   </body>
