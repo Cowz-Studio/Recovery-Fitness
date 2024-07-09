@@ -1,10 +1,12 @@
 ---
-import serialize from '../../../scripts/htmlConverter';
-import Navigation from '../components/Navigation.astro';
-import '../styles/about/about.css';
-import '../styles/global.css';
+import serialize from "../../../scripts/htmlConverter";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/about/about.css";
+import "../styles/global.css";
+import ParallaxImage from "../components/ParallaxImage"; // Adjust the import path as needed
 
-//const data =  await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json()); 
+//const data =  await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json());
 ---
 
 <html lang="en">
@@ -16,8 +18,50 @@ import '../styles/global.css';
     <title>About</title>
   </head>
   <body>
-    <Navigation className=""/>
-    <div id="aboutContent" set:html={serialize(data.aboutContent)}/>
-    
+    <Navigation id="navbar-index"/>
+    <div id="img-gallery">
+      <div class="parallax"></div>
+      <h1>ABOUT SAMUEL TSENG</h1>
+    </div>
+    <div id="bio">
+      <h1>OFFICIAL BIO</h1>
+      <div id="bio-container">
+        <div id="bio-desc">
+          <p>
+            Sam is a dedicated personal trainer who is excited and passionate about helping his clients achieve a healthier lifestyle. Sam brings a wealth of knowledge to his client whether they are beginners or regulars at the gym. He specializes in strength and conditioning, weight loss and the maintenance of fitness. He is currently utilizing his degree in Exercise Sport Science, to assist him in making professionally tailored plans for his client's success. Elevate Your Potential with Sam: Where Goals Become Gains!
+          </p>
+        </div>
+        <div id="bio-quali">
+          <div id="quali">
+            <h2>Qualifications</h2>
+            <ul>
+              <li>Certificate III Fitness Instructor</li>
+              <li>Certificate IV Personal Trainer</li>
+              <li>Bachelor in Sports Science</li>
+              <li>Bachelor in Nutrition</li>
+            </ul>
+          </div>
+          <div id="quali">
+            <h2>Specialisation</h2>
+            <ul>
+              <li>Strength and conditioning</li>
+              <li>Weight loss</li>
+              <li>Exercise programming</li>
+              <li>Mobility training</li>
+            </ul> 
+          </div>
+          <div id="quali">
+            <h2>Focus Area</h2>
+            <ul>
+              <li>Body transformation</li>
+              <li>Strength</li>
+              <li>Weight loss</li>
+              <li>Sport specific training</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>     
+    <Footer></Footer>
   </body>
 </html>

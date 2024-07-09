@@ -8,10 +8,10 @@ import '../styles/index/about.css';
 import '../styles/index/index.css';
 import '../styles/index/testimonies.css';
 
-
+//Make sure to update access token when expired in .env file
 const accessToken = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
 
-//const data = await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json());
+const data = await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json());
 ---
 
 <html lang="en">
@@ -42,6 +42,7 @@ const accessToken = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
 				<!--
 					<h2 set:text={data.summaryAboutContent}/>
 				 -->
+				 <h2 set:text={data.summaryAboutContent}/>
 				<a href="/about"><button type="button">LEARN MORE</button></a>
 			</div>
 			<img id="about-img" src="/images/samuel_tseng_demo.jpg">

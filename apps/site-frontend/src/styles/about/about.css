@@ -1,8 +1,58 @@
-#aboutContent{
-    padding: 2rem;
+#navbar-index {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95%;
+  z-index: 1000; /* Make sure this is higher than the parallax image */
 }
 
-/*
-  This is temporary, you can change this if you like. 
-  This is so that I can see the dot points
-*/
+#img-gallery {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  align-items: center;
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+.parallax {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: url('/images/about/strength.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#img-gallery h1 {
+  font-size: 96px;
+  color: white;
+  text-align: center;
+  margin: 10vw;
+}
+
+#bio h1 {
+  text-align: center;
+  margin-top: 5vh;
+}
+
+#bio-container {
+  display: flex;
+}
+
+#bio-desc {
+  margin: 5vh;
+}
+
+#bio-quali {
+  margin: 0 5vw 5vh 5vw;
+}
+
+#quali {
+  margin-top: 3vh;
+}
