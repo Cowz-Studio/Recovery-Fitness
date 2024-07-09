@@ -2,6 +2,7 @@
 import Navigation from '../components/Navigation.astro';
 import Footer from "../components/Footer.astro";
 import '../styles/global.css';
+import '../styles/contact/contact.css';
 ---
 
 <html lang="en">
@@ -15,10 +16,27 @@ import '../styles/global.css';
   <body>
     <Navigation/>
 
-    <h1>Contact</h1>
-    <h2>h2h2h2h2h2h2h2h2h</h2>
-    <p>Paragraph of text</p>
-    <p>Paragraph of text</p>
+    <div id="contact">
+      <h1>Contact Samuel Tseng</h1>
+      <h2>Feel free to email me at xxxxxx@gmail.com or contact via Social Media</h2>
+      <div id="contact-form">
+        <form>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name">
+  
+          <label for="fname">Email Address</label>
+          <input type="text" id="email" name="firstname" placeholder="Your email address">
+  
+          <label for="fname">Subject</label>
+          <input type="text" id="email" name="firstname" placeholder="Your enquiry">
+  
+          <label for="fname">Message</label>
+          <input type="text" id="email" name="firstname" placeholder="Message">
+  
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
     <Footer></Footer>
   </body>
 </html>
