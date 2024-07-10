@@ -61,16 +61,16 @@ const dataTestimonials = await fetch("http://localhost:3000/api/globals/testimon
 		<h1>MY CHAMPIONS</h1>
 		<h2 set:html={serialize(dataTestimonials.description)}/>
 		{
-			dataTestimonials.testimony.map((testimony, index) => (
+			dataTestimonials.testimony.map((testimony: any, index: any) => (
 				index % 2 === 0 ? (
-					<div id="testimony1" key={index}>
+					<div id="testimony1">
 						<img id="test-img" src={`http://localhost:3000${testimony.image.url}`} />
 						<div id="test-text">
 							<div set:html= {serialize(testimony.description)} />
 						</div>
 					</div>
 				) : (
-					<div id="testimony2" key={index}>
+					<div id="testimony2">
 						<div id="test-text">
 							<div set:html= {serialize(testimony.description)} />
 						</div>
