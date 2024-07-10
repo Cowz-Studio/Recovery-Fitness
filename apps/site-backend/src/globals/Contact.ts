@@ -15,6 +15,10 @@ import type { GlobalConfig } from "payload/types";
 const Contact: GlobalConfig = {
   slug: 'contact',
   label: 'Contact Content',
+  access: {
+    read: () => true,
+    update: () => true,
+  },
   fields: [
     {
       name: 'clubName',

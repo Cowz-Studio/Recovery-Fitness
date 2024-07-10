@@ -7,10 +7,11 @@ import { payloadCloud } from '@payloadcms/plugin-cloud'
 import { slateEditor } from '@payloadcms/richtext-slate'
 import { buildConfig } from 'payload/config'
 
-import TestimonialImgs from './collections/TestimonialImgs'
+import Assets from './collections/Assets'
 import Users from './collections/Users'
 import About from './globals/About'
 import Contact from './globals/Contact'
+import Homepage from './globals/Homepage'
 import Testimonials from './globals/Testimonials'
 import TrainingOptions from './globals/TrainingOptions'
 
@@ -20,8 +21,8 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
-  collections: [Users, TestimonialImgs],
-  globals: [About, Contact, TrainingOptions, Testimonials],
+  collections: [Users, Assets],
+  globals: [About, Contact, TrainingOptions, Testimonials, Homepage],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },

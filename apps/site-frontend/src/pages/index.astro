@@ -1,8 +1,9 @@
 ---
+import serialize from "../../../scripts/htmlConverter";
 import Footer from "../components/Footer.astro";
+import InstagramPosts from "../components/InstagramPosts";
 import Navigation from "../components/Navigation.astro";
 import TextSlider from "../components/TextSlider";
-import InstagramPosts from "../components/InstagramPosts";
 import '../styles/global.css';
 import '../styles/index/about.css';
 import '../styles/index/index.css';
@@ -11,7 +12,10 @@ import '../styles/index/testimonies.css';
 //Make sure to update access token when expired in .env file
 const accessToken = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
 
-const data = await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json());
+// Needs refactoring later as this is code smell
+const dataAbout = await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json());
+const dataHomepage = await fetch("http://localhost:3000/api/globals/homepage/").then((res) => res.json());
+const dataTestimonials = await fetch("http://localhost:3000/api/globals/testimonials/").then((res) => res.json());
 ---
 
 <html lang="en">
@@ -27,9 +31,9 @@ const data = await fetch("http://localhost:3000/api/globals/about/").then((res) 
 
 	<Navigation id="navbar-index"/>
 	<div id="hero">
-		<h1>RECOVER BACK TO YOUR PRIME</h1>
+		<h1 set:text={dataHomepage.heroText}/>
 		<video autoplay muted loop>
-			<source src="/videos/nike-demo.mp4" type="video/mp4">
+			<source src=`http://localhost:3000${dataHomepage.hero.url}` type="video/mp4">
 			Your browser does not support the video type
 		</video>
 	</div>
@@ -39,13 +43,12 @@ const data = await fetch("http://localhost:3000/api/globals/about/").then((res) 
 		<h1>ABOUT YOUR NEXT PERSONAL TRAINER</h1>
 		<div id="about_container">
 			<div id="about_h2">
-				<!--
-					<h2 set:text={data.summaryAboutContent}/>
-				 -->
-				 <h2 set:text={data.summaryAboutContent}/>
+				
+				<h2 set:text={dataAbout.summaryAboutContent}/>
+				
 				<a href="/about"><button type="button">LEARN MORE</button></a>
 			</div>
-			<img id="about-img" src="/images/samuel_tseng_demo.jpg">
+			<img id="about-img" src=`http://localhost:3000${dataHomepage.trainerPhoto.url}` >
 	</div>
 
 	<div id="slider">
@@ -56,22 +59,27 @@ const data = await fetch("http://localhost:3000/api/globals/about/").then((res) 
 	</div>
 	<div id="testimonies">
 		<h1>MY CHAMPIONS</h1>
-		<h1>MY CHAMPIONS</h1>
-		<h2>My champoins My champoins My champoins My champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoinsMy champoins</h2>
-		<div id="testimony1">
-			<img id="test-img" src="/images/testimony1.jpg">
-			<div id="test-text">
-				<p>“I am a happy customer”</p>
-				<p>-Customer</p>
-			</div>
-		</div>
-		<div id="testimony2">
-			<div id="test-text">
-				<p>“I am a happy customer”</p>
-				<p>-Customer</p>
-			</div>
-			<img id="test-img" src="/images/testimony2.jpg">
-		</div>
+		<h2 set:html={serialize(dataTestimonials.description)}/>
+		{
+			dataTestimonials.testimony.map((testimony, index) => (
+				index % 2 === 0 ? (
+					<div id="testimony1" key={index}>
+						<img id="test-img" src={`http://localhost:3000${testimony.image.url}`} />
+						<div id="test-text">
+							<div set:html= {serialize(testimony.description)} />
+						</div>
+					</div>
+				) : (
+					<div id="testimony2" key={index}>
+						<div id="test-text">
+							<div set:html= {serialize(testimony.description)} />
+						</div>
+						<img id="test-img" src={`http://localhost:3000${testimony.image.url}`} />
+					</div>
+				)
+			))
+		}
+
 	</div>
 	<div id="socials">
 		<h1>FOLLOW ME ON SOCIAL MEDIA</h1>

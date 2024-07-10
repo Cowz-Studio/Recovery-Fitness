@@ -19,11 +19,15 @@
 
 import type { RowLabelArgs } from "payload/dist/admin/components/forms/RowLabel/types";
 import type { GlobalConfig } from "payload/types";
-import TestimonialImgs from "../collections/TestimonialImgs";
+import Assets from "../collections/Assets";
 
 const Testimonials: GlobalConfig = {
   slug: 'testimonials',
   label: 'Testimonials',
+  access: {
+    read: () => true,
+    update: () => true,
+  },
   fields: [
     {
       name: 'description',
@@ -36,12 +40,12 @@ const Testimonials: GlobalConfig = {
       fields: [
         {
           name: 'description',
-          type: 'text',
+          type: 'richText',
         },
         {
           name: 'image',
           type: 'upload',
-          relationTo: TestimonialImgs.slug,
+          relationTo: Assets.slug,
         }
       ],
       admin:{

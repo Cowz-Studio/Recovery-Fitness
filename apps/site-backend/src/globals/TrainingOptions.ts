@@ -10,7 +10,10 @@ import type { GlobalConfig } from "payload/types";
 const TrainingOptions: GlobalConfig = {
   slug: 'trainingOptions',
   label: 'Training Options',
-  
+  access: {
+    read: () => true,
+    update: () => true,
+  },
   fields: [
     {
       name: 'trainingOption',

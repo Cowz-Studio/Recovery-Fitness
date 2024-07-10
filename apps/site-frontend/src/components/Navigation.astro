@@ -1,7 +1,9 @@
 ---
+import '../styles/navbar/navbar-index.css';
 import '../styles/navbar/navbar.css';
-import '../styles/navbar/navbar-index.css'
 const {id} = Astro.props;
+
+const data = await fetch("http://localhost:3000/api/globals/homepage/").then((res) => res.json());
 ---
 
 <!-- 
@@ -9,7 +11,7 @@ const {id} = Astro.props;
  -->
 
 <nav id={id ? id : 'navbar'}>
-    <p>SAMUEL TSENG</p>
+    <p>{data.name}</p>
     <ul class="nav-links">
         <li><a href="/">HOME</a></li>
         <li><a href="/about/">ABOUT</a></li>
