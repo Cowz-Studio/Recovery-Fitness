@@ -1,4 +1,6 @@
 ---
+
+const data = await fetch("http://localhost:3000/api/globals/socials").then((res) => res.json());
 ---
 
 <footer>
@@ -11,10 +13,12 @@
                 <li><a href="/contact">CONTACT</a></li>
             </ul>
             <ul>
-                <li><a href="https://www.instagram.com/samuel.ts3ng/">INSTAGRAM</a></li>
-                <li><a>TIKTOK</a></li>
-                <li><a>META</a></li>
-                <li><a>X</a></li>
+                {
+                    data.socials?.map((social) => 
+                        social.show && 
+                            ( <li><a href={social.url}>{social.title}</a></li>)
+                    )
+                }
             </ul>
         </div>
     </div>

@@ -12,6 +12,7 @@ import Users from './collections/Users'
 import About from './globals/About'
 import Contact from './globals/Contact'
 import Homepage from './globals/Homepage'
+import Socials from './globals/Socials'
 import Testimonials from './globals/Testimonials'
 import TrainingOptions from './globals/TrainingOptions'
 
@@ -22,7 +23,7 @@ export default buildConfig({
   },
   editor: slateEditor({}),
   collections: [Users, Assets],
-  globals: [About, Contact, TrainingOptions, Testimonials, Homepage],
+  globals: [About, Contact, TrainingOptions, Testimonials, Homepage, Socials],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
