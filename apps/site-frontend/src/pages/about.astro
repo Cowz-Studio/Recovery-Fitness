@@ -7,12 +7,11 @@ import "../styles/global.css";
 
 const data =  await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json()); 
 const name = await fetch("http://localhost:3000/api/globals/homepage/").then((res) => res.json()).then((data) => data.name);
-
-const heroImage = ''; 
+const heroImageUrl = data.aboutHeroPhoto ?`url(http://localhost:3000${data.aboutHeroPhoto.url})` :'url()'; 
 ---
-<style define:vars={{heroImage}}>
+<style define:vars={{heroImageUrl}}>
   .parallax {
-    background-image: url(heroImage);
+    background-image: var(--heroImageUrl);
   }
 </style>
 
