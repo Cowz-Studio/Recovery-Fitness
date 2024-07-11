@@ -61,7 +61,7 @@ const dataTestimonials = await fetch("http://localhost:3000/api/globals/testimon
 		<h1>MY CHAMPIONS</h1>
 		<h2 set:html={serialize(dataTestimonials.description)}/>
 		{
-			dataTestimonials.testimony.map((testimony: any, index: any) => (
+			dataTestimonials.testimony?.map((testimony: any, index: any) => (
 				index % 2 === 0 ? (
 					<div id="testimony1">
 						<img id="test-img" src={`http://localhost:3000${testimony.image.url}`} />
@@ -79,7 +79,6 @@ const dataTestimonials = await fetch("http://localhost:3000/api/globals/testimon
 				)
 			))
 		}
-
 	</div>
 	<div id="socials">
 		<h1>FOLLOW ME ON SOCIAL MEDIA</h1>

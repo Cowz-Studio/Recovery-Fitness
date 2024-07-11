@@ -40,7 +40,8 @@ const About: GlobalConfig= {
       fields: [
         {
           name: 'title',
-          type: 'text'
+          type: 'text',
+          required: true
         },
         {
           name:'description',
@@ -61,7 +62,8 @@ const About: GlobalConfig= {
       fields: [
         {
           name: 'title',
-          type: 'text'
+          type: 'text',
+          required: true
         },
         {
           name:'description',
