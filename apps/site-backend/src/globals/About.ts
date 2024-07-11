@@ -35,6 +35,14 @@ const About: GlobalConfig= {
       }
     },
     {
+      name: 'aboutHeroPhoto',
+      type: 'upload',
+      relationTo: 'assets',
+      admin: {
+        description: 'Hero photo for the About page'
+      }
+    },
+    {
       name: 'qualifications',
       type: 'array',
       fields: [
