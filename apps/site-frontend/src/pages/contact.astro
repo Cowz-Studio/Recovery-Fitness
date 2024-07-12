@@ -5,6 +5,7 @@ import '../styles/contact/contact.css';
 import '../styles/global.css';
 
 const emailToken = `${import.meta.env.WEB3FORM_TOKEN}`;
+const data = await fetch("http://localhost:3000/api/globals/socials/").then((res) => res.json());
 ---
 
 <html lang="en">
@@ -22,10 +23,13 @@ const emailToken = `${import.meta.env.WEB3FORM_TOKEN}`;
       <h1>Ready to meet Samuel Tseng?</h1>
       <h2>Fill in the enquiry form or contact Samuel via Social Media</h2>
       <div id="social-icons">
-        <img src="/icons/instagram.png">
-        <img src="/icons/tiktok.png">
-        <img src="/icons/meta.png">
-        <img src="/icons/twitter.png">
+        {
+          data.socials?.map((social) => (
+            <a href={social.url} target="_blank">
+              <img src={`http://localhost:3000${social.icon.url}`}/>
+            </a>
+          ))
+        }
       </div>
       <div id="contact-form">
         <form

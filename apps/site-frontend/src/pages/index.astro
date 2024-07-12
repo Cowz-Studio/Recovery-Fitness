@@ -29,66 +29,64 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
     <title>Samuel Tseng </title>
   </head>
   <body>
-
-
-	<Navigation id="navbar-index"/>
-	<div id="hero">
-		<h1 set:text={dataHomepage.heroText}/>
-		<video autoplay muted loop>
-			<source src=`http://localhost:3000${dataHomepage.hero.url}` type="video/mp4">
-			Your browser does not support the video type
-		</video>
-	</div>
-
-
-	<div id="about">
-		<h1>ABOUT YOUR NEXT PERSONAL TRAINER</h1>
-		<div id="about_container">
-			<div id="about_h2">
-				
-				<h2 set:text={dataAbout.summaryAboutContent}/>
-				
-				<a href="/about"><button type="button">LEARN MORE</button></a>
-			</div>
-			<img id="about-img" src=`http://localhost:3000${dataHomepage.trainerPhoto.url}` >
-	</div>
-
-	<div id="slider">
-		{
-			dataAbout.specialisations?.map((specialisation: any, index) => (
-				<TextSlider sliderText={specialisation.title} sliderColor={colours[index % colours.length]} sliderTime="20s" hoverImage={`http://localhost:3000${specialisation.sliderImage.url}`} client:load/>
-			))
-		}
-	</div>
-	<div id="testimonies">
-		<h1>MY CHAMPIONS</h1>
-		<h2 set:html={serialize(dataTestimonials.description)}/>
-		{
-			dataTestimonials.testimony?.map((testimony: any, index: any) => (
-				index % 2 === 0 ? (
-					<div id="testimony1">
-						<img id="test-img" src={`http://localhost:3000${testimony.image.url}`} />
-						<div id="test-text">
-							<div set:html= {serialize(testimony.description)} />
-						</div>
-					</div>
-				) : (
-					<div id="testimony2">
-						<div id="test-text">
-							<div set:html= {serialize(testimony.description)} />
-						</div>
-						<img id="test-img" src={`http://localhost:3000${testimony.image.url}`} />
-					</div>
-				)
-			))
-		}
-	</div>
-	<div id="socials">
-		<h1>FOLLOW ME ON SOCIAL MEDIA</h1>
-		<div id="social-media-area">
-			<InstagramPosts accessToken={accessToken} client:load></InstagramPosts>
+		<Navigation id="navbar-index"/>
+		<div id="hero">
+			<h1 set:text={dataHomepage.heroText}/>
+			<video autoplay muted loop>
+				<source src=`http://localhost:3000${dataHomepage.hero.url}` type="video/mp4">
+				Your browser does not support the video type
+			</video>
 		</div>
-	</div>
-	<Footer></Footer>
+
+
+		<div id="about">
+			<h1>ABOUT YOUR NEXT PERSONAL TRAINER</h1>
+			<div id="about_container">
+				<div id="about_h2">
+					
+					<h2 set:text={dataAbout.summaryAboutContent}/>
+					
+					<a href="/about"><button type="button">LEARN MORE</button></a>
+				</div>
+				<img id="about-img" src=`http://localhost:3000${dataHomepage.trainerPhoto.url}` >
+		</div>
+
+		<div id="slider">
+			{
+				dataAbout.specialisations?.map((specialisation: any, index) => (
+					<TextSlider sliderText={specialisation.title} sliderColor={colours[index % colours.length]} sliderTime="20s" hoverImage={`http://localhost:3000${specialisation.sliderImage.url}`} client:load/>
+				))
+			}
+		</div>
+		<div id="testimonies">
+			<h1>MY CHAMPIONS</h1>
+			<h2 set:html={serialize(dataTestimonials.description)}/>
+			{
+				dataTestimonials.testimony?.map((testimony: any, index: any) => (
+					index % 2 === 0 ? (
+						<div id="testimony1">
+							<img id="test-img" src={`http://localhost:3000${testimony.image.url}`} />
+							<div id="test-text">
+								<div set:html= {serialize(testimony.description)} />
+							</div>
+						</div>
+					) : (
+						<div id="testimony2">
+							<div id="test-text">
+								<div set:html= {serialize(testimony.description)} />
+							</div>
+							<img id="test-img" src={`http://localhost:3000${testimony.image.url}`} />
+						</div>
+					)
+				))
+			}
+		</div>
+		<div id="socials">
+			<h1>FOLLOW ME ON SOCIAL MEDIA</h1>
+			<div id="social-media-area">
+				<InstagramPosts accessToken={accessToken} client:load></InstagramPosts>
+			</div>
+		</div>
+		<Footer></Footer>
   </body>
 </html>

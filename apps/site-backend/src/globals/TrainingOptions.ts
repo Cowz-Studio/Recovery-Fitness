@@ -16,7 +16,7 @@ const TrainingOptions: GlobalConfig = {
   },
   fields: [
     {
-      name: 'trainingOption',
+      name: 'trainingOptions',
       type: 'array',
       fields:[
         {
@@ -27,11 +27,13 @@ const TrainingOptions: GlobalConfig = {
         {
           name: 'description',
           type: 'richText',
+          required: true
         },
         {
           name: 'image',
           type: 'upload',
-          relationTo: 'assets'
+          relationTo: 'assets',
+          required: true
         }
       ],
       admin:{

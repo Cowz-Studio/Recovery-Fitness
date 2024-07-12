@@ -75,7 +75,7 @@ function serializeNode(node) {
 		case "li":
 			return `<li>${innerHTML}</li>`;
 		case "link":
-			return `<a href="${escapeHTML(url)}">${innerHTML}</a>`;
+			return `<a href="${escapeHTML(url)}" target="_blank">${innerHTML}</a>`;
 		default:
 			return `<p>${innerHTML}</p>`;
 	}

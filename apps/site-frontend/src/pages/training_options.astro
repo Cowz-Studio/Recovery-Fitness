@@ -1,8 +1,11 @@
 ---
-import Navigation from "../components/Navigation.astro";
+import serialize from "../../../scripts/htmlConverter";
 import Footer from "../components/Footer.astro";
+import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
-import "../styles/training_options/training_option.css"
+import "../styles/training_options/training_option.css";
+
+const data = await fetch("http://localhost:3000/api/globals/trainingOptions/").then((res) => res.json());     
 ---
 
 <html lang="en">
@@ -18,28 +21,29 @@ import "../styles/training_options/training_option.css"
     <div id="title">
       <h1>MY TRAINING OPTIONS</h1>
     </div>
-    <div id="training_option1">
-      <img src="/images/exercise.jpg">
-      <div id="text-content">
-        <h2>TRAINING OPTION 1</h2>
-      <p>description</p>
-      <ul>
-        <li>item 1</li>
-        <li>item 2</li>
-      </ul>
-      </div>
-    </div>
-    <div id="training_option1">
-      <div id="text-content">
-        <h2>TRAINING OPTION 1</h2>
-        <p>description</p>
-        <ul>
-          <li>item 1</li>
-          <li>item 2</li>
-        </ul>
-      </div>
-      <img src="/images/exercise.jpg">
-    </div>
+    {
+      data.trainingOptions?.map((trainingOption, index) => (
+        index % 2 === 0 ?(
+        <div id="training_option1">
+          <img src={`http://localhost:3000${trainingOption.image.url}`} />
+          <div id="text-content">
+            <h2>{trainingOption.title}</h2>
+            <p set:html={serialize(trainingOption.description)}/>
+           
+          </div>
+        </div>
+        ) : (
+        <div id="training_option1">
+          <div id="text-content">
+            <h2>{trainingOption.title}</h2>
+            <p set:html={serialize(trainingOption.description)}/>  
+          </div>
+          <img src={`http://localhost:3000${trainingOption.image.url}`} />
+        </div>
+        )
+        )
+      ) 
+    }
     <Footer></Footer>
   </body>
 </html>

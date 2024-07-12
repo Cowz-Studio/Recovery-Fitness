@@ -24,6 +24,12 @@ const Socials: GlobalConfig = {
           required: true
         },
         {
+          name: 'icon',
+          type: 'upload',
+          relationTo: 'assets',
+          required: true
+        },
+        {
           name: 'show',
           type: 'checkbox',
           defaultValue: false

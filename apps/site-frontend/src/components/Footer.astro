@@ -4,24 +4,24 @@ const data = await fetch("http://localhost:3000/api/globals/socials").then((res)
 ---
 
 <footer>
-    <div id="footer-box">
-        <div id="footer-content">
-            <ul>
-                <li><a href="/">HOME</a></li>
-                <li><a href="/about">ABOUT</a></li>
-                <li><a href="/training_options">TRAINING OPTIONS</a></li>
-                <li><a href="/contact">CONTACT</a></li>
-            </ul>
-            <ul>
-                {
-                    data.socials?.map((social) => 
-                        social.show && 
-                            ( <li><a href={social.url}>{social.title}</a></li>)
-                    )
-                }
-            </ul>
-        </div>
+
+    <div id="footer-content">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <li><a href="/training_options">TRAINING OPTIONS</a></li>
+            <li><a href="/contact">CONTACT</a></li>
+        </ul>
+        <ul>
+            {
+                data.socials?.map((social) => 
+                    social.show && 
+                        ( <li><a href={social.url} target="_blank">{social.title}</a></li>)
+                )
+            }
+        </ul>
     </div>
+    
     <div id="credit">
         <p>© 2024 Samuel Tseng</p>
         <p>Design and Coded by Daniel Hong & Zachary Tam</p>
@@ -32,10 +32,7 @@ const data = await fetch("http://localhost:3000/api/globals/socials").then((res)
 <style>
     footer {
         display: grid;
-        max-height: 25vh;
-        min-height: 25vh;
-        padding: 1em 0;
-        width: 100%;
+        padding: 1em;
         background-color: #5FAB99;
         place-items: center;
         align-items: center;
@@ -52,11 +49,13 @@ const data = await fetch("http://localhost:3000/api/globals/socials").then((res)
         display: flex;
         align-items: center;
         place-content: center;
+        width: 100%;
+        justify-content: space-around;
     }
 
     ul {
         list-style: none;
-        padding: 0 15vw 0 15vw;
+        padding: auto;
         text-align: center;
     }
 
