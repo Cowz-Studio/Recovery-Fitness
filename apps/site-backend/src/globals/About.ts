@@ -51,10 +51,6 @@ const About: GlobalConfig= {
           type: 'text',
           required: true
         },
-        {
-          name:'description',
-          type: 'richText'
-        }
       ],
       admin:{
         components:{

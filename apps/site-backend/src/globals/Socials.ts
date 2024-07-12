@@ -16,14 +16,17 @@ const Socials: GlobalConfig = {
         {
           name: 'title',
           type: 'text',
+          required: true
         },
         {
           name: 'url',
           type: 'text',
+          required: true
         },
         {
           name: 'show',
           type: 'checkbox',
+          defaultValue: false
         }
       ],
       admin:{

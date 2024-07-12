@@ -41,10 +41,12 @@ const Testimonials: GlobalConfig = {
         {
           name: 'description',
           type: 'richText',
+          required: true,
         },
         {
           name: 'image',
           type: 'upload',
+          required: true,
           relationTo: Assets.slug,
         }
       ],

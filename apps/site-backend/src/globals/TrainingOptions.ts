@@ -22,10 +22,16 @@ const TrainingOptions: GlobalConfig = {
         {
           name: 'title',
           type: 'text',
+          required : true
         },
         {
           name: 'description',
           type: 'richText',
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'assets'
         }
       ],
       admin:{
