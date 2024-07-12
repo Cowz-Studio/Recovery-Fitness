@@ -8,14 +8,13 @@ import "../styles/global.css";
 const data =  await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json()); 
 const name = await fetch("http://localhost:3000/api/globals/homepage/").then((res) => res.json()).then((data) => data.name);
 
-const heroImage = ''; 
+const heroImage = "url('/images/about/strength.jpg')"; 
 ---
 <style define:vars={{heroImage}}>
   .parallax {
-    background-image: url(heroImage);
+    background-image: var(--heroImage);
   }
 </style>
-
 
 <html lang="en">
   <head>

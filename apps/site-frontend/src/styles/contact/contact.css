@@ -38,3 +38,11 @@ input[type=submit] {
     cursor: pointer;
     place-items: center;
 }
+
+#social-icons img{
+    width: 100px;
+    height: 100px;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-bottom: 5vh;
+}
