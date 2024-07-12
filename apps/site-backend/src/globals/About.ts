@@ -75,7 +75,14 @@ const About: GlobalConfig= {
         },
         {
           name:'description',
-          type: 'richText'
+          type: 'richText',
+          required: true
+        },
+        {
+          name: 'sliderImage',
+          type: 'upload',
+          relationTo: 'assets',
+          required: true
         }
       ],
       admin:{
