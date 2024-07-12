@@ -29,7 +29,7 @@ const TestSlider = ({ sliderText, sliderColor, sliderTime, hoverImage }) => {
             const totalWidth = textSlider.scrollWidth;
 
             // Append clones to the textSlider itself, not the container
-            while (sliderContainer.scrollWidth < totalWidth * 3) {
+            while (sliderContainer.scrollWidth < totalWidth * 10) {
                 const clone = textSlider.cloneNode(true);
                 textSlider.appendChild(clone);
             }

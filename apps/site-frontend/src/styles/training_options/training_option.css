@@ -1,0 +1,37 @@
+#title h1{
+    text-align: center;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    padding-left: 30vw;
+    padding-right: 30vw;
+    font-size: 76px;
+}
+
+#training_option1 {
+    display: flex;
+}
+
+#training_option1 img {
+    width: 50%;
+    height: auto;
+}
+
+#text-content {
+    width: 50%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    text-align: center;
+    
+}
+
+h2 {
+    padding-bottom: 2vh;
+}
+
+p {
+    padding-bottom: 2vh;
+}
+
+ul {
+    list-style-type: none;
+}

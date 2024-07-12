@@ -3,6 +3,8 @@ import Footer from "../components/Footer.astro";
 import Navigation from '../components/Navigation.astro';
 import '../styles/contact/contact.css';
 import '../styles/global.css';
+
+const emailToken = `${import.meta.env.WEB3FORM_TOKEN}`;
 ---
 
 <html lang="en">
@@ -33,7 +35,7 @@ import '../styles/global.css';
         class="needs-validation"
         data-astro-reload
         novalidate>
-        <input type="hidden" name="access_key" value="23349518-dd66-4196-9aaa-cd11ddcc4097"/>
+        <input type="hidden" name="access_key" value={emailToken}/>
           <label for="name">Full Name</label>
           <input type="text" id="name" name="name" placeholder="Your full name">
   
