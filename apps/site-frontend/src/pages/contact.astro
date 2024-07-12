@@ -1,8 +1,8 @@
 ---
-import Navigation from '../components/Navigation.astro';
 import Footer from "../components/Footer.astro";
-import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
 import '../styles/contact/contact.css';
+import '../styles/global.css';
 ---
 
 <html lang="en">
@@ -20,7 +20,14 @@ import '../styles/contact/contact.css';
       <h1>Contact Samuel Tseng</h1>
       <h2>Feel free to email me at xxxxxx@gmail.com or contact via Social Media</h2>
       <div id="contact-form">
-        <form>
+        <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        id="form"
+        class="needs-validation"
+        data-astro-reload
+        novalidate>
+        <input type="hidden" name="access_key" value="23349518-dd66-4196-9aaa-cd11ddcc4097"/>
           <label for="name">Full Name</label>
           <input type="text" id="name" name="name" placeholder="Your full name">
   
