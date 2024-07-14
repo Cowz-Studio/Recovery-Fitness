@@ -19,7 +19,7 @@ h2 {
     margin-bottom: 5vh;
 }
 
-input[type=text], textarea {
+input, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -28,7 +28,9 @@ input[type=text], textarea {
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
+    font-family: inherit;
 }
+
 
 input[type=submit] {
     background-color: #BE82B9;
@@ -38,6 +40,7 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
     place-items: center;
+    width: 100px;
 }
 
 #social-icons img{
@@ -46,4 +49,16 @@ input[type=submit] {
     margin-left: 3vw;
     margin-right: 3vw;
     margin-bottom: 5vh;
+}
+
+#submit-area {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 20px;
+}
+
+#required_star{
+    color: red;
+    padding: 0 2px;
 }
