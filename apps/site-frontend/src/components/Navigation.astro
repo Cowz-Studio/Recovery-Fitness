@@ -1,6 +1,4 @@
 ---
-import '../styles/navbar/navbar-index.css';
-import '../styles/navbar/navbar.css';
 const {id} = Astro.props;
 
 const data = await fetch("http://localhost:3000/api/globals/homepage/").then((res) => res.json());
