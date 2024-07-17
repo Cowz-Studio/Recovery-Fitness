@@ -14,7 +14,6 @@
   align-items: center;
   min-height: 100vh;
   max-height: 100vh;
-  padding: 0 20px; /* Add padding to avoid content touching the edges on smaller screens */
 }
 
 .parallax {
@@ -46,13 +45,11 @@
 
 #bio-container {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-  justify-content: center; /* Center items on smaller screens */
 }
 
 #bio-desc {
   padding: 0 6em;
-  width: 90vw;
+  width:90vw;
 }
 
 #bio-quali {
@@ -61,41 +58,4 @@
 
 #quali {
   margin-top: 3vh;
-}
-
-/* Media Queries for Mobile Optimization */
-@media (max-width: 768px) {
-  #img-gallery h1 {
-      font-size: 48px;
-      margin: 5vw;
-  }
-
-  #bio-desc {
-      padding: 0 2em;
-      width: 100%;
-  }
-
-  #bio-quali {
-      margin: 0 2vw 5vh 2vw;
-  }
-}
-
-@media (max-width: 480px) {
-  #img-gallery h1 {
-      font-size: 32px;
-      margin: 5vw;
-  }
-
-  #bio-container {
-      flex-direction: column; /* Stack items vertically on smaller screens */
-  }
-
-  #bio-desc {
-      padding: 0 1em;
-      width: 100%;
-  }
-
-  #bio-quali {
-      margin: 0 1vw 5vh 1vw;
-  }
 }
