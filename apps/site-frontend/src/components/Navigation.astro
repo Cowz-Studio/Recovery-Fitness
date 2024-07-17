@@ -10,12 +10,7 @@ if (id === 'navbar-index') {
     backgroundColor = '#5FAB99';
 }
 ---
-
-<!-- 
-    Component dedicated to the Navigation Bar
- -->
-
- <style define:vars={{backgroundColor}}>
+<style define:vars={{backgroundColor}}>
     body, html {
         margin: 0;
         padding: 0;
@@ -60,10 +55,47 @@ if (id === 'navbar-index') {
         font-size: 30px;
         margin: 0;
     }
+
+    /* Hamburger menu */
+    .hamburger-menu {
+        display: none;
+        cursor: pointer;
+        font-size: 30px;
+    }
+
+    @media (max-width: 768px) {
+        #navbar {
+            padding: 20px;
+        }
+        
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: var(--backgroundColor);
+        }
+
+        .nav-links li {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .hamburger-menu {
+            display: block;
+        }
+
+        #navbar.open .nav-links {
+            display: flex;
+        }
+    }
 </style>
 
 <nav id='navbar'>
     <p>{data.name}</p>
+    <div class="hamburger-menu">☰</div>  <!-- Hamburger Icon -->
     <ul class="nav-links">
         <li><a href="/">HOME</a></li>
         <li><a href="/about/">ABOUT</a></li>
@@ -71,3 +103,20 @@ if (id === 'navbar-index') {
         <li><a href="/contact/">CONTACT</a></li>
     </ul>
 </nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function toggleMenu() {
+            var navbar = document.getElementById('navbar');
+            if (navbar) {
+                navbar.classList.toggle('open');
+            }
+        }
+
+        // Attach the toggleMenu function to the hamburger menu click event
+        var hamburgerMenu = document.querySelector('.hamburger-menu');
+        if (hamburgerMenu) {
+            hamburgerMenu.addEventListener('click', toggleMenu);
+        }
+    });
+</script>

@@ -1,49 +1,131 @@
-#about {
+#navbar-index {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    z-index: 1000; /* Make sure this is higher than the parallax image */
+}
+
+#img-gallery {
+    position: relative;
+    overflow: hidden;
     display: grid;
     place-items: center;
     align-items: center;
     min-height: 100vh;
     max-height: 100vh;
+    padding: 0 20px; /* Add padding to avoid content touching the edges on smaller screens */
 }
 
-
-#about-img {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 5px 5px 15px rgb(175, 175, 175);
+.parallax {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
-#about h2 {
-    font-weight:300;
-    margin: 0 20vw 0 20vw;
-}
-
-#about h1 {
-    font-weight: 400;
-    font-size: 50px;
-}
-
-#about_container {
-    display: flex;
-    align-items: center;
-    margin: 5vh;
-    
-}
-
-#about_h2 {
-    display: grid;
-    align-items: center;
-    place-items: center;
-    margin-right: 5vw;
-}
-
-#about button{
-    margin-top: 1rem;
-    background-color: #028391;
+#img-gallery h1 {
+    font-size: 96px;
     color: white;
-    padding: 8px 20px;
     text-align: center;
-    border-radius: 5px;
+    margin: 10vw;
+}
+
+#bio {
+    padding-top: 2em;
+}
+
+#bio h1 {
+    text-align: center;
+}
+
+#bio-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    justify-content: center; /* Center items on smaller screens */
+}
+
+#bio-desc {
+    padding: 0 6em;
+    width: 90vw;
+}
+
+#bio-quali {
+    margin: 0 5vw 5vh 5vw;
+}
+
+#quali {
+    margin-top: 3vh;
+}
+
+/* Media Queries for Mobile Optimization */
+@media (max-width: 768px) {
+    #img-gallery h1 {
+        font-size: 48px;
+        margin: 5vw;
+    }
+
+    #bio-desc {
+        padding: 0 2em;
+        width: 100%;
+    }
+
+    #bio-quali {
+        margin: 0 2vw 5vh 2vw;
+    }
+}
+
+@media (max-width: 480px) {
+    #img-gallery h1 {
+        font-size: 32px;
+        margin: 5vw;
+    }
+
+    #bio-container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+
+    #bio-desc {
+        padding: 0 1em;
+        width: 100%;
+    }
+
+    #bio-quali {
+        margin: 0 1vw 5vh 1vw;
+    }
+}
+
+/* Specific Styles for Devices with Max Width of 360px */
+@media (max-width: 360px) {
+    #navbar-index {
+        width: 100%;
+    }
+
+    #img-gallery h1 {
+        font-size: 24px;
+        margin: 5vw;
+    }
+
+    #bio-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #bio-desc {
+        padding: 0 1em;
+        width: 100%;
+    }
+
+    #bio-quali {
+        margin: 0 1vw 5vh 1vw;
+    }
+
+    #quali {
+        margin-top: 2vh;
+    }
 }

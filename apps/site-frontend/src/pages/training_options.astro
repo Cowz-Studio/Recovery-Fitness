@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
 import "../styles/training_options/training_option.css";
+import Navbar from "../components/Navbar";
 
 const data = await fetch("http://localhost:3000/api/globals/trainingOptions/").then((res) => res.json());     
 ---
