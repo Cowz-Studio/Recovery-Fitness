@@ -4,13 +4,67 @@ import '../styles/navbar/navbar.css';
 const {id} = Astro.props;
 
 const data = await fetch("http://localhost:3000/api/globals/homepage/").then((res) => res.json());
+let backgroundColor = '';
+
+if (id === 'navbar-index') {
+    backgroundColor = '';
+} else {
+    backgroundColor = '#5FAB99';
+}
 ---
 
 <!-- 
     Component dedicated to the Navigation Bar
  -->
 
-<nav id={id ? id : 'navbar'}>
+ <style define:vars={{backgroundColor}}>
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--backgroundColor);
+        padding: 30px 40px;
+        box-sizing: border-box;
+        color: white;
+        z-index: 10; /* Ensure the navbar is on top of other elements */
+    }
+
+    #navbar .nav-links {
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    #navbar .nav-links li {
+        display: inline-block;
+        margin-left: 30px;
+    }
+
+    #navbar .nav-links a {
+        text-decoration: none;
+        font-weight: lighter;
+        color: white;
+        font-size: 20px;
+    }
+
+    #navbar p {
+        font-weight: bolder;
+        font-size: 30px;
+        margin: 0;
+    }
+</style>
+
+<nav id='navbar'>
     <p>{data.name}</p>
     <ul class="nav-links">
         <li><a href="/">HOME</a></li>
