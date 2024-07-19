@@ -38,7 +38,7 @@ ul {
 /* Media Queries for Mobile Optimization */
 @media (max-width: 768px) {
     #title h1 {
-        padding-top: 10vh;
+        padding-top: 25vh;
         padding-bottom: 10vh;
         padding-left: 10vw;
         padding-right: 10vw;
@@ -64,7 +64,6 @@ ul {
 
 @media (max-width: 480px) {
     #title h1 {
-        padding-top: 8vh;
         padding-bottom: 8vh;
         padding-left: 5vw;
         padding-right: 5vw;
@@ -85,7 +84,6 @@ ul {
 /* Specific Styles for Devices with Max Width of 360px */
 @media (max-width: 360px) {
     #title h1 {
-        padding-top: 5vh;
         padding-bottom: 5vh;
         padding-left: 5vw;
         padding-right: 5vw;
