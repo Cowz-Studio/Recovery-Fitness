@@ -46,10 +46,6 @@ function serializeNode(node) {
 			escapedText = `<em>${escapedText}</em>`;
 		}
 
-		if (text === "") {
-			escapedText = "<br />";
-		}
-
 		return escapedText;
 	}
 
@@ -77,7 +73,7 @@ function serializeNode(node) {
 		case "link":
 			return `<a href="${escapeHTML(url)}" target="_blank">${innerHTML}</a>`;
 		default:
-			return `<p>${innerHTML}</p>`;
+			return `${innerHTML}`;
 	}
 }
 

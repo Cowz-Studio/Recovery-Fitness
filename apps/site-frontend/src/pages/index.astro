@@ -40,7 +40,10 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
 
 
 		<div id="about">
-			<h1>ABOUT YOUR NEXT PERSONAL TRAINER</h1>
+			<div id="heading-container">
+				<h1>ABOUT YOUR NEXT PERSONAL TRAINER</h1>
+			</div>
+			
 			<div id="about_container">
 				<div id="about_h2">
 					
@@ -60,7 +63,10 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
 		</div>
 		<div id="testimonies">
 			<h1>MY CHAMPIONS</h1>
-			<h2 set:html={serialize(dataTestimonials.description)}/>
+			{
+				serialize(dataTestimonials.description) && <h2 set:html={serialize(dataTestimonials.description)}/>
+			}
+			
 			{
 				dataTestimonials.testimony?.map((testimony: any, index: any) => (
 					index % 2 === 0 ? (
