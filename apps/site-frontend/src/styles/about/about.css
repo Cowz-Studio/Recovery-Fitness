@@ -59,3 +59,114 @@
 #quali {
   margin-top: 3vh;
 }
+
+/* Media Queries for Mobile Optimization *//* Media Queries for Mobile Optimization */
+@media (max-width: 768px) {
+  #navbar-index {
+      width: 100%;
+  }
+
+  #img-gallery h1 {
+      font-size: 48px;
+      margin: 5vw;
+  }
+
+  #bio {
+      padding-top: 1em;
+  }
+
+  #bio-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center; /* Ensure text is centered */
+  }
+
+  #bio-desc {
+      padding: 0 2em;
+      width: 100%;
+      text-align: center; /* Center text within the bio description */
+  }
+
+  #bio-quali {
+      margin: 0 2vw 5vh 2vw;
+      text-align: center; /* Center text within the bio qualifications */
+      width: 100%;
+  }
+
+  #quali {
+      margin-top: 2vh;
+      text-align: center; /* Center text within the individual qualification sections */
+  }
+}
+
+@media (max-width: 480px) {
+  #img-gallery h1 {
+      font-size: 32px;
+      margin: 5vw;
+  }
+  
+
+  #bio-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center; /* Ensure text is centered */
+      width: 100%;
+  }
+
+  #bio-desc {
+      padding: 0 1em;
+      width: 100%;
+      text-align: center; /* Center text within the bio description */
+  }
+
+  #bio-quali {
+      margin: 0 1vw 5vh 1vw;
+      text-align: center; /* Center text within the bio qualifications */
+      width: 100%;
+  }
+
+  #quali {
+      margin-top: 1vh;
+      text-align: center; /* Center text within the individual qualification sections */
+  }
+}
+
+/* Specific Styles for Devices with Max Width of 360px */
+@media (max-width: 360px) {
+  #navbar-index {
+      width: 100%;
+  }
+
+  #bio {
+    width: 100%;
+  }
+
+  #img-gallery h1 {
+      font-size: 24px;
+      margin: 5vw;
+  }
+
+  #bio-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center; /* Ensure text is centered */
+      width: 100%;
+  }
+
+  #bio-desc {
+      padding: 0 1em;
+      width: 100%;
+      text-align: center; /* Center text within the bio description */
+  }
+
+  #bio-quali {
+      margin: 0 1vw 5vh 1vw;
+      text-align: center; /* Center text within the bio qualifications */
+      width: 100%;
+  }
+
+  #quali {
+      margin-top: 1vh;
+      text-align: center; /* Center text within the individual qualification sections */
+  }
+}
