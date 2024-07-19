@@ -11,7 +11,11 @@
     display: flex;
 }
 
-#training_option1 img {
+#training_option2 {
+    display: flex;
+}
+
+#training_option1 img, #training_option2 img {
     width: 50%;
     height: auto;
 }
@@ -27,7 +31,7 @@ h2 {
     padding-bottom: 2vh;
 }
 
-#training_options1 p {
+#training_option1, #training_option2 p {
     padding-bottom: 2vh;
 }
 
@@ -50,15 +54,19 @@ ul {
         align-items: center;
     }
 
-    #training_option1 img,
+    #training_option2 {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    #training_option1, #training_option2 img,
     #text-content {
         width: 100%;
-        padding: 5vh 2vw;
+
     }
 
     #text-content {
         padding-top: 2vh;
-        padding-bottom: 2vh;
     }
 }
 
@@ -68,11 +76,6 @@ ul {
         padding-left: 5vw;
         padding-right: 5vw;
         font-size: 32px;
-    }
-
-    #training_option1 img,
-    #text-content {
-        padding: 5vh 1vw;
     }
 
     #text-content {
@@ -85,16 +88,9 @@ ul {
 @media (max-width: 360px) {
     #title h1 {
         padding-bottom: 5vh;
-        padding-left: 5vw;
-        padding-right: 5vw;
+
         font-size: 24px;
     }
-
-    #training_option1 img,
-    #text-content {
-        padding: 3vh 1vw;
-    }
-
     #text-content {
         padding-top: 1vh;
         padding-bottom: 1vh;
@@ -104,7 +100,7 @@ ul {
         font-size: 18px;
     }
 
-    #training_options1 p {
+    #training_option1 p, #training_option2 p {
         font-size: 16px;
     }
 }

@@ -4,7 +4,6 @@ import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
 import "../styles/training_options/training_option.css";
-import Navbar from "../components/Navbar";
 
 const data = await fetch("http://localhost:3000/api/globals/trainingOptions/").then((res) => res.json());     
 ---
@@ -36,7 +35,7 @@ const data = await fetch("http://localhost:3000/api/globals/trainingOptions/").t
           </div>
         </div>
         ) : (
-        <div id="training_option1">
+        <div id="training_option2">
           <div id="text-content">
             <h2>{trainingOption.title}</h2>
             <p set:html={serialize(trainingOption.description)}/>  
