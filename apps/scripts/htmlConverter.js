@@ -72,6 +72,8 @@ function serializeNode(node) {
 			return `<li>${innerHTML}</li>`;
 		case "link":
 			return `<a href="${escapeHTML(url)}" target="_blank">${innerHTML}</a>`;
+		case "indent":
+			return `<div style="text-indent: 40px;">${innerHTML}</div>`;
 		default:
 			return `${innerHTML}`;
 	}

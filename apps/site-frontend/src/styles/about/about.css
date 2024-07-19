@@ -44,20 +44,21 @@
 }
 
 #bio-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-gap: 10px;
 }
 
 #bio-desc {
-  padding: 0 6em;
-  width:90vw;
+  width:100%;
+  padding: 0 3vw;
 }
 
-#bio-quali {
-  margin: 0 5vw 5vh 5vw;
-}
+
 
 #quali {
   margin-top: 3vh;
+  padding: 0 5vw;
 }
 
 /* Media Queries for Mobile Optimization *//* Media Queries for Mobile Optimization */
@@ -76,19 +77,19 @@
   }
 
   #bio-container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center; /* Ensure text is centered */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Ensure text is centered */
   }
 
   #bio-desc {
-      padding: 0 2em;
       width: 100%;
       text-align: center; /* Center text within the bio description */
+      padding: 0;
   }
 
   #bio-quali {
-      margin: 0 2vw 5vh 2vw;
       text-align: center; /* Center text within the bio qualifications */
       width: 100%;
   }
@@ -114,7 +115,6 @@
   }
 
   #bio-desc {
-      padding: 0 1em;
       width: 100%;
       text-align: center; /* Center text within the bio description */
   }
@@ -154,7 +154,6 @@
   }
 
   #bio-desc {
-      padding: 0 1em;
       width: 100%;
       text-align: center; /* Center text within the bio description */
   }
