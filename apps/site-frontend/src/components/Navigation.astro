@@ -37,9 +37,6 @@ if (id === 'navbar-index') {
         margin: 0;
         padding: 0;
         align-items: center;
-        overflow: hidden;
-        max-height: 0;  
-        transition: max-height 0.5s ease-out; 
     }
 
     #navbar .nav-links li {
@@ -76,9 +73,13 @@ if (id === 'navbar-index') {
         }
 
         #navbar .nav-links {
+            overflow: hidden;
+            max-height: 0;  
+            display: flex;
             flex-direction: column;
             width: 100%;
             margin-top: 10px;
+            transition: max-height 0.5s ease-out; 
         }
 
         #navbar .nav-links li {

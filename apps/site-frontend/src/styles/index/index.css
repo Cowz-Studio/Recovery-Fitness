@@ -31,7 +31,8 @@
     display: grid;
     place-items: center;
     align-items: center;
-    padding: 20px 0;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
     width: 100%;
 }
 
