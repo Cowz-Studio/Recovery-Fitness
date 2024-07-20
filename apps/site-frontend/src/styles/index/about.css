@@ -7,8 +7,8 @@
 
 
 #about-img {
-    width: 50%;
-    height: auto;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 5px 5px 15px rgb(175, 175, 175);
@@ -36,6 +36,12 @@
     #about_container{
         flex-direction: column-reverse;
     }
+
+    #about-img {
+        width: 200px;
+        height: 200px;
+    }
+    
 }
 
 @media (max-width: 480px) {

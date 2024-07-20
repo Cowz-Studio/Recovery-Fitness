@@ -28,7 +28,7 @@ if (id === 'navbar-index') {
         padding: 30px 40px;
         box-sizing: border-box;
         color: white;
-        z-index: 10; /* Ensure the navbar is on top of other elements */
+        z-index: 10; 
     }
 
     #navbar .nav-links {
@@ -36,6 +36,7 @@ if (id === 'navbar-index') {
         display: flex;
         margin: 0;
         padding: 0;
+        align-items: center;
     }
 
     #navbar .nav-links li {
@@ -56,17 +57,47 @@ if (id === 'navbar-index') {
         margin: 0;
     }
 
-      /* Media Query to hide navbar on small screens */
-      @media (max-width: 768px) {
-        #navbar .nav-links{
-            flex-direction: column;
-        }
+    .hamburger-menu {
+        display: none;
+        cursor: pointer;
+        font-size: 30px;
+        margin-right: 20px;
     }
 
+    @media (max-width: 768px) {
+        #navbar {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: #5FAB99;
+        }
+
+        #navbar .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #navbar .nav-links li {
+            margin: 10px 0;
+        }
+
+        .hamburger-menu {
+            display: block;
+        }
+
+        #navbar.open .nav-links {
+            display: flex;
+        }
+    }
 </style>
 
 <nav id='navbar'>
-    <p>{data.name}</p>
+    <div style="display: flex; align-items: center;">
+        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>  <!-- Hamburger Icon -->
+        <p>{data.name}</p>
+    </div>
     <ul class="nav-links">
         <li><a href="/">HOME</a></li>
         <li><a href="/about/">ABOUT</a></li>
@@ -74,3 +105,19 @@ if (id === 'navbar-index') {
         <li><a href="/contact/">CONTACT</a></li>
     </ul>
 </nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function toggleMenu() {
+            var navbar = document.getElementById('navbar');
+            if (navbar) {
+                navbar.classList.toggle('open');
+            }
+        }
+
+        var hamburgerMenu = document.querySelector('.hamburger-menu');
+        if (hamburgerMenu) {
+            hamburgerMenu.addEventListener('click', toggleMenu);
+        }
+    });
+</script>
