@@ -58,7 +58,7 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
 
 		<div id="slider">
 			{
-				dataAbout.specialisations?.map((specialisation: any, index) => (
+				dataAbout.specialisations?.map((specialisation: any, index: number) => (
 					<TextSlider sliderText={specialisation.title} sliderColor={colours[index % colours.length]} sliderTime="20s" hoverImage={`http://localhost:3000${specialisation.sliderImage.url}`} client:load/>
 				))
 			}
