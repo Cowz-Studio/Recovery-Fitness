@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Navigation from '../components/Navigation.astro';
+import { ViewTransitions } from "astro:transitions";
 import '../styles/contact/contact.css';
 import '../styles/global.css';
 
@@ -16,7 +17,8 @@ const dataHomepage= await fetch("http://localhost:3000/api/globals/homepage/").t
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} >
-    <title>About</title>
+    <title>Contact Sam</title>
+    <ViewTransitions />
   </head>
   <body>
     <Navigation/>

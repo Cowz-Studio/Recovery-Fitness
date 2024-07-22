@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import InstagramPosts from "../components/InstagramPosts";
 import Navigation from "../components/Navigation.astro";
 import TextSlider from "../components/TextSlider";
+import { ViewTransitions } from "astro:transitions";
 import '../styles/global.css';
 import '../styles/index/about.css';
 import '../styles/index/index.css';
@@ -27,11 +28,12 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} >
     <title>Samuel Tseng </title>
+	<ViewTransitions/>
   </head>
   <body>
 		<Navigation id="navbar-index"/>
 		<div id="hero">
-			<h1 set:text={dataHomepage.heroText}/>
+			<h1 set:text={dataHomepage.heroText}/> 
 			<video autoplay muted loop>
 				<source src=`http://localhost:3000${dataHomepage.hero.url}` type="video/mp4">
 				Your browser does not support the video type
