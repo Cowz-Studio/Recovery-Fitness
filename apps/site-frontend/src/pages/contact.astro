@@ -25,7 +25,8 @@ const dataHomepage= await fetch("http://localhost:3000/api/globals/homepage/").t
       <h2>Fill in the enquiry form or contact {dataHomepage.name} via Social Media</h2>
       <div id="social-icons">
         {
-          data.socials?.map((social) => (
+          data.socials?.map((social) => 
+          social.show && (
             <a href={social.url} target="_blank">
               <img src={`http://localhost:3000${social.icon.url}`}/>
             </a>
