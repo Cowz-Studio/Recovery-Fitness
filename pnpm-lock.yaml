@@ -66,6 +66,12 @@ importers:
       astro:
         specifier: ^4.10.1
         version: 4.10.1(@types/node@20.14.2)(sass@1.69.4)(terser@5.31.1)(typescript@5.4.5)
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
       simple-parallax-js:
         specifier: ^6.0.1
         version: 6.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
