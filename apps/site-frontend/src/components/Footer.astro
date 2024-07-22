@@ -15,7 +15,7 @@ const data = await fetch("http://localhost:3000/api/globals/socials").then((res)
         <div id="socials">
             <ul>
                 {
-                    data.socials?.map((social) => 
+                    data.socials?.map((social: any) => 
                         social.show && 
                             ( <li><a href={social.url} target="_blank">{social.title}</a></li>)
                     )

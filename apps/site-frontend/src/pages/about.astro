@@ -40,7 +40,7 @@ const heroImageUrl = data.aboutHeroPhoto ?`url(http://localhost:3000${data.about
             <h2>Qualifications</h2>
             <ul>
               {
-                data.qualifications?.map((qualification) => (
+                data.qualifications?.map((qualification: any) => (
                   <li set:text={qualification.title}/>
                 ))  
               }
@@ -50,7 +50,7 @@ const heroImageUrl = data.aboutHeroPhoto ?`url(http://localhost:3000${data.about
             <h2>Specialisation</h2>
             <ul>
               {
-                data.specialisations?.map((specialisation) => (
+                data.specialisations?.map((specialisation: any) => (
                   <li set:text={specialisation.title}/>
                 ))  
               }
@@ -60,7 +60,7 @@ const heroImageUrl = data.aboutHeroPhoto ?`url(http://localhost:3000${data.about
             <h2>Focus Area</h2>
             <ul>
               {
-                data.focusAreas?.map((focusArea) => (
+                data.focusAreas?.map((focusArea: any) => (
                   <li set:text={focusArea.title}/>
                 ))  
               }
