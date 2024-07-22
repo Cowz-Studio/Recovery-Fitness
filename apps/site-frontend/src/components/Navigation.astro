@@ -1,126 +1,134 @@
 ---
-const {id} = Astro.props;
+const { id } = Astro.props;
 
 const data = await fetch("http://localhost:3000/api/globals/homepage/").then((res) => res.json());
 let backgroundColor = '';
 
 if (id === 'navbar-index') {
-    backgroundColor = '';
+  backgroundColor = '';
 } else {
-    backgroundColor = '#5FAB99';
+  backgroundColor = '#5FAB99';
 }
 ---
-<style define:vars={{backgroundColor}}>
-    body, html {
-        margin: 0;
-        padding: 0;
-    }
-    
+<style define:vars={{ backgroundColor }}>
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--backgroundColor);
+    padding: 30px 40px;
+    box-sizing: border-box;
+    color: white;
+    z-index: 10; 
+  }
+
+  #navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  #navbar .nav-links li {
+    display: inline-block;
+    margin-left: 30px;
+  }
+
+  #navbar .nav-links a {
+    text-decoration: none;
+    font-weight: lighter;
+    color: white;
+    font-size: 20px;
+  }
+
+  #navbar p {
+    font-weight: bolder;
+    font-size: 30px;
+    margin: 0;
+  }
+
+  .hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    margin-right: 20px;
+  }
+
+  @media (max-width: 768px) {
     #navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: var(--backgroundColor);
-        padding: 30px 40px;
-        box-sizing: border-box;
-        color: white;
-        z-index: 10; 
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      background-color: #5FAB99;
     }
 
     #navbar .nav-links {
-        list-style-type: none;
-        display: flex;
-        margin: 0;
-        padding: 0;
-        align-items: center;
+      overflow: hidden;
+      max-height: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 10px;
+      transition: max-height 0.5s ease-out; 
     }
 
     #navbar .nav-links li {
-        display: inline-block;
-        margin-left: 30px;
-    }
-
-    #navbar .nav-links a {
-        text-decoration: none;
-        font-weight: lighter;
-        color: white;
-        font-size: 20px;
-    }
-
-    #navbar p {
-        font-weight: bolder;
-        font-size: 30px;
-        margin: 0;
+      margin: 10px 0;
     }
 
     .hamburger-menu {
-        display: none;
-        cursor: pointer;
-        font-size: 30px;
-        margin-right: 20px;
+      display: block;
     }
 
-    @media (max-width: 768px) {
-        #navbar {
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 20px;
-            background-color: #5FAB99;
-        }
-
-        #navbar .nav-links {
-            overflow: hidden;
-            max-height: 0;  
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            margin-top: 10px;
-            transition: max-height 0.5s ease-out; 
-        }
-
-        #navbar .nav-links li {
-            margin: 10px 0;
-        }
-
-        .hamburger-menu {
-            display: block;
-        }
-
-        #navbar.open .nav-links {
-            max-height: 500px; /* Maximum height to expand to */
-        }
+    #navbar.open .nav-links {
+      max-height: 500px; /* Maximum height to expand to */
     }
+  }
 </style>
 
 <nav id='navbar'>
-    <div style="display: flex; align-items: center;">
-        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>  <!-- Hamburger Icon -->
-        <p>{data.name}</p>
-    </div>
-    <ul class="nav-links">
-        <li><a href="/">HOME</a></li>
-        <li><a href="/about/">ABOUT</a></li>
-        <li><a href="/training_options/">TRAINING OPTIONS</a></li>
-        <li><a href="/contact/">CONTACT</a></li>
-    </ul>
+  <div style="display: flex; align-items: center;">
+    <div class="hamburger-menu">☰</div> <!-- Hamburger Icon -->
+    <p>{data.name}</p>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/">HOME</a></li>
+    <li><a href="/about/">ABOUT</a></li>
+    <li><a href="/training_options/">TRAINING OPTIONS</a></li>
+    <li><a href="/contact/">CONTACT</a></li>
+  </ul>
 </nav>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        function toggleMenu() {
-            var navbar = document.getElementById('navbar');
-            if (navbar) {
-                navbar.classList.toggle('open');
-            }
-        }
+  function toggleMenu() {
+    var navbar = document.getElementById('navbar');
+    if (navbar) {
+      navbar.classList.toggle('open');
+    }
+  }
 
-        var hamburgerMenu = document.querySelector('.hamburger-menu');
-        if (hamburgerMenu) {
-            hamburgerMenu.addEventListener('click', toggleMenu);
-        }
-    });
+  document.addEventListener('DOMContentLoaded', function() {
+    var hamburgerMenu = document.querySelector('.hamburger-menu');
+    if (hamburgerMenu) {
+      hamburgerMenu.addEventListener('click', toggleMenu);
+    }
+  });
+
+  // Ensure the menu works correctly with view transitions
+  document.addEventListener('astro:after-swap', function() {
+    var hamburgerMenu = document.querySelector('.hamburger-menu');
+    if (hamburgerMenu) {
+      hamburgerMenu.addEventListener('click', toggleMenu);
+    }
+  });
 </script>
