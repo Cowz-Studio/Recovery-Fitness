@@ -1,7 +1,7 @@
 ---
 const { id } = Astro.props;
 
-const data = await fetch("http://localhost:3000/api/globals/homepage/").then((res) => res.json());
+const data = await fetch("https://recovery-fitness.onrender.com/api/globals/homepage/").then((res) => res.json());
 let backgroundColor = '';
 
 if (id === 'navbar-index') {
