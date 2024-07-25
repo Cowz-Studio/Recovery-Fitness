@@ -6,8 +6,8 @@ import '../styles/contact/contact.css';
 import '../styles/global.css';
 
 const emailToken = `${import.meta.env.WEB3FORM_TOKEN}`;
-const data = await fetch("http://localhost:3000/api/globals/socials/").then((res) => res.json());
-const dataHomepage= await fetch("http://localhost:3000/api/globals/homepage/").then((res) => res.json());
+const data = await fetch("https://recovery-fitness.onrender.com/api/globals/socials/").then((res) => res.json());
+const dataHomepage= await fetch("https://recovery-fitness.onrender.com/api/globals/homepage/").then((res) => res.json());
 
 ---
 
@@ -30,7 +30,7 @@ const dataHomepage= await fetch("http://localhost:3000/api/globals/homepage/").t
           data.socials?.map((social: any) => 
           social.show && (
             <a href={social.url} target="_blank">
-              <img src={`http://localhost:3000${social.icon.url}`}/>
+              <img src={`https://recovery-fitness.onrender.com${social.icon.url}`}/>
             </a>
           ))
         }

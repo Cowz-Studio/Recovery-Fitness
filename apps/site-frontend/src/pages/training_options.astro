@@ -6,7 +6,7 @@ import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 import "../styles/training_options/training_option.css";
 
-const data = await fetch("http://localhost:3000/api/globals/trainingOptions/").then((res) => res.json());     
+const data = await fetch("https://recovery-fitness.onrender.com/api/globals/trainingOptions/").then((res) => res.json());     
 ---
 
 <html lang="en">
@@ -29,7 +29,7 @@ const data = await fetch("http://localhost:3000/api/globals/trainingOptions/").t
       data.trainingOptions?.map((trainingOption: any, index: number) => (
         index % 2 === 0 ?(
         <div id="training_option1">
-          <img src={`http://localhost:3000${trainingOption.image.url}`} />
+          <img src={`https://recovery-fitness.onrender.com${trainingOption.image.url}`} />
           <div id="text-content">
             <h2>{trainingOption.title}</h2>
             <p set:html={serialize(trainingOption.description)}/>
@@ -42,7 +42,7 @@ const data = await fetch("http://localhost:3000/api/globals/trainingOptions/").t
             <h2>{trainingOption.title}</h2>
             <p set:html={serialize(trainingOption.description)}/>  
           </div>
-          <img src={`http://localhost:3000${trainingOption.image.url}`} />
+          <img src={`https://recovery-fitness.onrender.com${trainingOption.image.url}`} />
         </div>
         )
         )

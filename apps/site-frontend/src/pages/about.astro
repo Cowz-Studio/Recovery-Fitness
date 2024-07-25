@@ -6,9 +6,9 @@ import { ViewTransitions } from "astro:transitions";
 import "../styles/about/about.css";
 import "../styles/global.css";
 
-const data =  await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json()); 
-const name = await fetch("http://localhost:3000/api/globals/homepage/").then((res) => res.json()).then((data) => data.name);
-const heroImageUrl = data.aboutHeroPhoto ?`url(http://localhost:3000${data.aboutHeroPhoto.url})` :'url()'; 
+const data =  await fetch("https://recovery-fitness.onrender.com/api/globals/about/").then((res) => res.json()); 
+const name = await fetch("https://recovery-fitness.onrender.com/api/globals/homepage/").then((res) => res.json()).then((data) => data.name);
+const heroImageUrl = data.aboutHeroPhoto ?`url(https://recovery-fitness.onrender.com${data.aboutHeroPhoto.url})` :'url()'; 
 ---
 <style define:vars={{heroImageUrl}}>
   .parallax {

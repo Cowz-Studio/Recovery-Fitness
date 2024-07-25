@@ -14,9 +14,9 @@ import '../styles/index/testimonies.css';
 const accessToken = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
 
 // Needs refactoring later as this is code smell
-const dataAbout = await fetch("http://localhost:3000/api/globals/about/").then((res) => res.json());
-const dataHomepage = await fetch("http://localhost:3000/api/globals/homepage/").then((res) => res.json());
-const dataTestimonials = await fetch("http://localhost:3000/api/globals/testimonials/").then((res) => res.json());
+const dataAbout = await fetch("https://recovery-fitness.onrender.com/api/globals/about/").then((res) => res.json());
+const dataHomepage = await fetch("https://recovery-fitness.onrender.com/api/globals/homepage/").then((res) => res.json());
+const dataTestimonials = await fetch("https://recovery-fitness.onrender.com/api/globals/testimonials/").then((res) => res.json());
 
 const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
 ---
@@ -35,7 +35,7 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
     <div id="hero">
       <h1 set:text={dataHomepage.heroText}/> 
       <video autoplay muted loop>
-        <source src={`http://localhost:3000${dataHomepage.hero.url}`} type="video/mp4">
+        <source src={`https://recovery-fitness.onrender.com${dataHomepage.hero.url}`} type="video/mp4">
         Your browser does not support the video type
       </video>
     </div>
@@ -50,14 +50,14 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
           <h2 set:text={dataAbout.summaryAboutContent}/>
           <a href="/about"><button type="button">LEARN MORE</button></a>
         </div>
-        <img id="about-img" src={`http://localhost:3000${dataHomepage.trainerPhoto.url}`} />
+        <img id="about-img" src={`https://recovery-fitness.onrender.com${dataHomepage.trainerPhoto.url}`} />
       </div>
     </div>
 
     <div id="slider">
       {
         dataAbout.specialisations?.map((specialisation: any, index: number) => (
-          <TextSlider sliderText={specialisation.title} sliderColor={colours[index % colours.length]} sliderTime="20s" hoverImage={`http://localhost:3000${specialisation.sliderImage.url}`} client:load/>
+          <TextSlider sliderText={specialisation.title} sliderColor={colours[index % colours.length]} sliderTime="20s" hoverImage={`https://recovery-fitness.onrender.com${specialisation.sliderImage.url}`} client:load/>
         ))
       }
     </div>
@@ -71,7 +71,7 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
         dataTestimonials.testimony?.map((testimony: any, index: any) => (
           index % 2 === 0 ? (
             <div id="testimony1" class="hidden">
-              <img id="test-img" src={`http://localhost:3000${testimony.image.url}`} />
+              <img id="test-img" src={`https://recovery-fitness.onrender.com${testimony.image.url}`} />
               <div id="test-text">
                 <div set:html={serialize(testimony.description)} />
               </div>
@@ -81,7 +81,7 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
               <div id="test-text">
                 <div set:html={serialize(testimony.description)} />
               </div>
-              <img id="test-img" src={`http://localhost:3000${testimony.image.url}`} />
+              <img id="test-img" src={`https://recovery-fitness.onrender.com${testimony.image.url}`} />
             </div>
           )
         ))
