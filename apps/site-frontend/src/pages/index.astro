@@ -117,8 +117,26 @@ if (typeof window !== "undefined") {
     hiddenElements.forEach((el) => observer.observe(el));
   }
 
-  document.addEventListener('DOMContentLoaded', initObserver);
+
 
   // Ensure the animations work correctly with view transitions
   document.addEventListener('astro:after-swap', initObserver);
+
+  function reinitializeVideo() {
+    const video = document.getElementById('hero-video') as HTMLVideoElement;
+    if (video) {
+      video.load();
+      video.play();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initObserver();
+    reinitializeVideo();
+  });
+
+  document.addEventListener('astro:after-swap', () => {
+    initObserver();
+    reinitializeVideo();
+  });
 </script>
