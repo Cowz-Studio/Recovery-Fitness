@@ -4,11 +4,13 @@ import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
 import { ViewTransitions } from "astro:transitions";
 import "../styles/about/about.css";
-import "../styles/global.css";
+import "../styles/global.css"
 
-const data =  await fetch("https://recovery-fitness.onrender.com/api/globals/about/").then((res) => res.json()); 
-const name = await fetch("https://recovery-fitness.onrender.com/api/globals/homepage/").then((res) => res.json()).then((data) => data.name);
-const heroImageUrl = data.aboutHeroPhoto ?`url(https://recovery-fitness.onrender.com${data.aboutHeroPhoto.url})` :'url()'; 
+const apiBaseUrl = import.meta.env.API_BASE_URL;
+
+const data =  await fetch(`${apiBaseUrl}/api/globals/about/`).then((res) => res.json()); 
+const name = await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((res) => res.json()).then((data) => data.name);
+const heroImageUrl = data.aboutHeroPhoto ?`url(${apiBaseUrl}${data.aboutHeroPhoto.url})` :'url()'; 
 ---
 <style define:vars={{heroImageUrl}}>
   .parallax {

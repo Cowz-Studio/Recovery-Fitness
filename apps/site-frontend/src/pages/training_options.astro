@@ -6,7 +6,11 @@ import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 import "../styles/training_options/training_option.css";
 
-const data = await fetch("https://recovery-fitness.onrender.com/api/globals/trainingOptions/").then((res) => res.json());     
+const apiBaseUrl = import.meta.env.API_BASE_URL;
+
+const data = await fetch(`${apiBaseUrl}/api/globals/trainingOptions/`).then((res) => res.json());
+
+
 ---
 
 <html lang="en">
@@ -29,7 +33,7 @@ const data = await fetch("https://recovery-fitness.onrender.com/api/globals/trai
       data.trainingOptions?.map((trainingOption: any, index: number) => (
         index % 2 === 0 ?(
         <div id="training_option1">
-          <img src={`https://recovery-fitness.onrender.com${trainingOption.image.url}`} />
+          <img src={`${apiBaseUrl}${trainingOption.image.url}`} />
           <div id="text-content">
             <h2>{trainingOption.title}</h2>
             <p set:html={serialize(trainingOption.description)}/>
@@ -42,7 +46,7 @@ const data = await fetch("https://recovery-fitness.onrender.com/api/globals/trai
             <h2>{trainingOption.title}</h2>
             <p set:html={serialize(trainingOption.description)}/>  
           </div>
-          <img src={`https://recovery-fitness.onrender.com${trainingOption.image.url}`} />
+          <img src={`${apiBaseUrl}${trainingOption.image.url}`} />
         </div>
         )
         )
