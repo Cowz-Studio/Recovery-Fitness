@@ -17,6 +17,11 @@ if (id === 'navbar-index') {
     margin: 0;
     padding: 0;
   }
+
+  #logo a {
+    text-decoration: none;
+    color: white;
+  }
   
   #navbar {
     display: flex;
@@ -99,9 +104,9 @@ if (id === 'navbar-index') {
 </style>
 
 <nav id='navbar'>
-  <div style="display: flex; align-items: center;">
+  <div style="display: flex; align-items: center;" id="logo">
     <div class="hamburger-menu">☰</div> <!-- Hamburger Icon -->
-    <p>{data.name}</p>
+    <a href="/"><p>{data.name}</p></a>
   </div>
   <ul class="nav-links">
     <li><a href="/">HOME</a></li>

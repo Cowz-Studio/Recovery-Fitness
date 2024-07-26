@@ -20,21 +20,16 @@ const dataHomepage = await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((re
 const dataTestimonials = await fetch(`${apiBaseUrl}/api/globals/testimonials/`).then((res) => res.json());
 
 const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
-
-let isMobileView = false;
-if (typeof window !== "undefined") {
-  isMobileView = window.innerWidth <= 768; // Adjust the breakpoint as needed
-}
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} >
     <title>Samuel Tseng</title>
-    {isMobileView ? null : <ViewTransitions />}
+    <ViewTransitions />
   </head>
   <body>
     <Navigation id="navbar-index"/>
@@ -63,7 +58,7 @@ if (typeof window !== "undefined") {
     <div id="slider">
       {
         dataAbout.specialisations?.map((specialisation: any, index: number) => (
-          <TextSlider sliderText={specialisation.title} sliderColor={colours[index % colours.length]} sliderTime="20s" hoverImage={`${apiBaseUrl}${specialisation.sliderImage.url}`} client:load/>
+          <TextSlider sliderText={specialisation.title} sliderColor={colours[index % colours.length]} sliderTime="50s" hoverImage={`${apiBaseUrl}${specialisation.sliderImage.url}`} client:load/>
         ))
       }
     </div>
