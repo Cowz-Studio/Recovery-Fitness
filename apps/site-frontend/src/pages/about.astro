@@ -11,6 +11,11 @@ const apiBaseUrl = import.meta.env.API_BASE_URL;
 const data =  await fetch(`${apiBaseUrl}/api/globals/about/`).then((res) => res.json()); 
 const name = await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((res) => res.json()).then((data) => data.name);
 const heroImageUrl = data.aboutHeroPhoto ?`url(${apiBaseUrl}${data.aboutHeroPhoto.url})` :'url()'; 
+
+let isMobileView = false;
+if (typeof window !== "undefined") {
+  isMobileView = window.innerWidth <= 768; // Adjust the breakpoint as needed
+}
 ---
 <style define:vars={{heroImageUrl}}>
   .parallax {
@@ -25,7 +30,7 @@ const heroImageUrl = data.aboutHeroPhoto ?`url(${apiBaseUrl}${data.aboutHeroPhot
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} >
     <title>About</title>
-    <ViewTransitions/>
+    {isMobileView ? null : <ViewTransitions />}
   </head>
   <body>
     <Navigation id="navbar-index" />

@@ -20,6 +20,11 @@ const dataHomepage = await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((re
 const dataTestimonials = await fetch(`${apiBaseUrl}/api/globals/testimonials/`).then((res) => res.json());
 
 const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
+
+let isMobileView = false;
+if (typeof window !== "undefined") {
+  isMobileView = window.innerWidth <= 768; // Adjust the breakpoint as needed
+}
 ---
 
 <html lang="en">
@@ -29,7 +34,7 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} >
     <title>Samuel Tseng</title>
-    <ViewTransitions />
+    {isMobileView ? null : <ViewTransitions />}
   </head>
   <body>
     <Navigation id="navbar-index"/>

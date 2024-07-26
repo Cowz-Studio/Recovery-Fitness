@@ -11,6 +11,10 @@ const apiBaseUrl = import.meta.env.API_BASE_URL;
 const data = await fetch(`${apiBaseUrl}/api/globals/socials/`).then((res) => res.json());
 const dataHomepage= await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((res) => res.json());
 
+let isMobileView = false;
+if (typeof window !== "undefined") {
+  isMobileView = window.innerWidth <= 768; // Adjust the breakpoint as needed
+}
 ---
 
 <html lang="en">
@@ -20,7 +24,7 @@ const dataHomepage= await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((res
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} >
     <title>Contact Sam</title>
-    <ViewTransitions />
+    {isMobileView ? null : <ViewTransitions />}
   </head>
   <body>
     <Navigation/>
