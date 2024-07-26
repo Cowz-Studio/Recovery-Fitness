@@ -6,8 +6,8 @@ import type { CollectionConfig } from 'payload/types'
 const Assets: CollectionConfig = {
   slug: 'assets',
   upload: {
-    staticURL: '/assets',
-    staticDir: 'assets/',
+    staticURL: '/assets', 
+    staticDir: '/data/assets', 
   },
   access: {
     read: () => true,
