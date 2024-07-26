@@ -40,7 +40,7 @@ if (typeof window !== "undefined") {
     <Navigation id="navbar-index"/>
     <div id="hero">
       <h1 set:text={dataHomepage.heroText}/> 
-      <video autoplay muted loop>
+      <video autoplay muted loop playsinline>
         <source src={`${apiBaseUrl}${dataHomepage.hero.url}`} type="video/mp4">
         Your browser does not support the video type
       </video>
