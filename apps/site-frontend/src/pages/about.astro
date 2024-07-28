@@ -1,10 +1,10 @@
 ---
-import serialize from "../../../scripts/htmlConverter";
+import { ViewTransitions } from "astro:transitions";
+import serialize from "../../scripts/htmlConverter";
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
-import { ViewTransitions } from "astro:transitions";
 import "../styles/about/about.css";
-import "../styles/global.css"
+import "../styles/global.css";
 
 const apiBaseUrl = import.meta.env.API_BASE_URL;
 
