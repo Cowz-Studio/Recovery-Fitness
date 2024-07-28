@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/index/InstagramPost.css';
 
 /**
@@ -16,7 +16,6 @@ import '../styles/index/InstagramPost.css';
 
 const InstagramPosts = ({ accessToken }) => {
   const [posts, setPosts] = useState([]);
-  const videoRefs = useRef([]);
 
   useEffect(() => {
     const fetchInstagramPosts = async () => {
@@ -38,42 +37,6 @@ const InstagramPosts = ({ accessToken }) => {
     fetchInstagramPosts();
   }, [accessToken]);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 767px)'); // Mobile view
-
-    if (mediaQuery.matches) {
-      const handleScrollEffect = (entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target;
-          if (entry.isIntersecting) {
-            video.play();
-          } else {
-            video.pause();
-            video.currentTime = 0;
-          }
-        });
-      };
-
-      const observer = new IntersectionObserver(handleScrollEffect, {
-        threshold: 0.5, // Trigger when 50% of the element is visible
-      });
-
-      videoRefs.current.forEach((video) => {
-        if (video) {
-          observer.observe(video);
-        }
-      });
-
-      return () => {
-        videoRefs.current.forEach((video) => {
-          if (video) {
-            observer.unobserve(video);
-          }
-        });
-      };
-    }
-  }, [posts]);
-
   const handleMouseEnter = (event) => {
     if (!window.matchMedia('(max-width: 767px)').matches) {
       event.target.play();
@@ -90,13 +53,12 @@ const InstagramPosts = ({ accessToken }) => {
   return (
     <div className="instagram-posts">
       {posts.length > 0 ? (
-        posts.map((post, index) => (
+        posts.map((post) => (
           <div key={post.id} className="instagram-post">
             <a href={post.permalink} target="_blank" rel="noopener noreferrer">
               {post.media_type === 'IMAGE' && <img src={post.media_url} alt={post.caption} />}
               {post.media_type === 'VIDEO' && (
                 <video
-                  ref={(el) => (videoRefs.current[index] = el)}
                   muted
                   loop
                   onMouseEnter={handleMouseEnter}

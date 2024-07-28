@@ -52,31 +52,32 @@ h2 {
     #training_option1 {
         flex-direction: column;
         align-items: center;
+        max-height: 100vh;
+        min-height: 100vh;
     }
 
     #training_option2 {
         flex-direction: column-reverse;
         align-items: center;
+        max-height: 100vh;
+        min-height: 100vh;
     }
 
     #training_option1, #training_option2 img,
     #text-content {
         width: 100%;
-
-    }
-
-    #text-content {
-        padding-top: 2vh;
+        line-height: 2vh;
+        justify-content: center;
     }
 
     #training_option1 img {
         width: 100%;
-        height: 80%;
+        height: auto;
     }
 
     #training_option2 img {
         width: 100%;
-        height: 80%;
+        height: auto;
     }
 }
 
