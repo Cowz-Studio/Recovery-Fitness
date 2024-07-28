@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import InstagramPosts from "../components/InstagramPosts";
 import Navigation from "../components/Navigation.astro";
 import TextSlider from "../components/TextSlider";
+import { SEO } from "astro-seo";
 import '../styles/global.css';
 import '../styles/index/about.css';
 import '../styles/index/index.css';
@@ -24,11 +25,16 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
 
 <html lang="en">
   <head>
+    <SEO
+      title="Recovery Fitness - Home Page"
+      titleTemplate="Recovery Fitness"
+      description="Home/Index page of the Recovery Fitness website which includes a brief of the serivces offered by personally trainer Samuel Tseng. The page also include his testimony, social media post "
+    />
+
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} >
-    <title>Samuel Tseng</title>
     <ViewTransitions />
   </head>
   <body>
@@ -49,7 +55,7 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
       <div id="about_container">
         <div id="about_h2">
           <h2 set:text={dataAbout.summaryAboutContent}/>
-          <a href="/about"><button type="button">LEARN MORE</button></a>
+          <a href="/about"><button type="button">LEARN MORE ABOUT SAMUEL TSENG</button></a>
         </div>
         <img id="about-img" src={`${apiBaseUrl}${dataHomepage.trainerPhoto.url}`} />
       </div>

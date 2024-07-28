@@ -2,6 +2,7 @@
 import Footer from "../components/Footer.astro";
 import Navigation from '../components/Navigation.astro';
 import { ViewTransitions } from "astro:transitions";
+import { SEO } from "astro-seo";
 import '../styles/contact/contact.css';
 import '../styles/global.css';
 
@@ -16,6 +17,12 @@ const dataHomepage= await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((res
 
 <html lang="en">
   <head>
+    <SEO
+    title="Recovery Fitness"
+    titleTemplate="Contact Samuel Tseng"
+    description="The contact page is where visitor get in contact with Samuel Tseng via a enquiry form or contact him via Social Media"
+  />
+
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />

@@ -9,10 +9,16 @@
 
 #training_option1 {
     display: flex;
+    min-height: 50vh;
+    max-height: 50vh;
+
 }
 
 #training_option2 {
     display: flex;
+    min-height: 50vh;
+    max-height: 50vh;
+
 }
 
 #training_option1 img, #training_option2 img {
@@ -21,23 +27,17 @@
 }
 
 #text-content {
-    width: 50%;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    text-align: center;
-}
+    margin: auto;
+    height: 100%;
+    display: block;
+  }
 
 h2 {
     padding-bottom: 2vh;
 }
 
-#training_option1, #training_option2 p {
-    padding-bottom: 2vh;
-}
 
-ul {
-    list-style-type: none;
-}
+
 
 /* Media Queries for Mobile Optimization */
 @media (max-width: 768px) {

@@ -8,7 +8,7 @@ const data = await fetch(`${apiBaseUrl}/api/globals/socials`).then((res) => res.
 <footer>
 
     <div id="footer-content">
-        <ul>
+        <ul id="nav">
             <li><a href="/">HOME</a></li>
             <li><a href="/about">ABOUT</a></li>
             <li><a href="/training_options">TRAINING OPTIONS</a></li>
@@ -56,12 +56,17 @@ const data = await fetch(`${apiBaseUrl}/api/globals/socials`).then((res) => res.
         place-content: center;
         width: 100%;
         justify-content: space-around;
+        padding-top: 3vh;
     }
 
     ul {
         list-style: none;
+    }
+
+    #nav ul {
+        list-style: none;
         padding: 0;
-        text-align: center;
+        text-align: left;
     }
 
     a {
@@ -69,6 +74,10 @@ const data = await fetch(`${apiBaseUrl}/api/globals/socials`).then((res) => res.
         color: white;
         font-size: 36px;
         font-weight: bold;
+    }
+
+    #socials {
+        text-align: right;
     }
 
     #credit {

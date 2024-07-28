@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/index/InstagramPost.css';
 
-
 /**
  * InstagramPosts Component
  * 
@@ -38,6 +37,15 @@ const InstagramPosts = ({ accessToken }) => {
     fetchInstagramPosts();
   }, [accessToken]);
 
+  const handleMouseEnter = (event) => {
+    event.target.play();
+  };
+
+  const handleMouseLeave = (event) => {
+    event.target.pause();
+    event.target.currentTime = 0;
+  };
+
   return (
     <div className="instagram-posts">
       {posts.length > 0 ? (
@@ -46,7 +54,12 @@ const InstagramPosts = ({ accessToken }) => {
             <a href={post.permalink} target="_blank" rel="noopener noreferrer">
               {post.media_type === 'IMAGE' && <img src={post.media_url} alt={post.caption} />}
               {post.media_type === 'VIDEO' && (
-                <video autoPlay muted loop>
+                <video
+                  muted
+                  loop
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <source src={post.media_url} type="video/mp4" />
                   <track kind="captions" srcLang="en" label="English captions" />
                   Your browser does not support the video tag.

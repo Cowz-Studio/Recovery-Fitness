@@ -1,37 +1,57 @@
-  
-  .instagram-posts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center; /* Center the individual posts within the .instagram-posts container */
-  }
-  
+.instagram-posts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Center the individual posts within the .instagram-posts container */
+}
+
+.instagram-post {
+  width: 30%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative; /* Make the container relative */
+}
+
+.instagram-post img,
+.instagram-post video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the media covers the container */
+  position: absolute; /* Make the media absolutely positioned */
+  top: 0; /* Position it at the top */
+  left: 0; /* Position it at the left */
+}
+
+.instagram-post::before {
+  content: "";
+  display: block;
+  padding-top: 100%; /* This creates the aspect ratio of 1:1 (square) */
+}
+
+.instagram-post p {
+  padding: 10px;
+  font-size: 14px;
+  text-align: center; /* Center the caption text */
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
   .instagram-post {
-    width: 30%;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative; /* Make the container relative */
+    width: 45%; /* Make posts larger on smaller screens to fit two per row */
   }
-  
-  .instagram-post img,
-  .instagram-post video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the media covers the container */
-    position: absolute; /* Make the media absolutely positioned */
-    top: 0; /* Position it at the top */
-    left: 0; /* Position it at the left */
-  }
-  
-  .instagram-post::before {
-    content: "";
-    display: block;
-    padding-top: 100%; /* This creates the aspect ratio of 1:1 (square) */
-  }
-  
+
   .instagram-post p {
-    padding: 10px;
-    font-size: 14px;
-    text-align: center; /* Center the caption text */
+    font-size: 12px; /* Adjust font size for captions */
   }
+}
+
+@media (max-width: 480px) {
+  .instagram-post {
+    width: 45%; /* Ensure two posts per row on very small screens */
+  }
+
+  .instagram-post p {
+    font-size: 12px; /* Adjust font size for captions */
+  }
+}

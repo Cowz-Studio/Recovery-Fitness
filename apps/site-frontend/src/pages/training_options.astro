@@ -3,6 +3,7 @@ import { ViewTransitions } from "astro:transitions";
 import serialize from "../../scripts/htmlConverter";
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
+import { SEO } from "astro-seo";
 import "../styles/global.css";
 import "../styles/training_options/training_option.css";
 
@@ -14,6 +15,12 @@ const data = await fetch(`${apiBaseUrl}/api/globals/trainingOptions/`).then((res
 
 <html lang="en">
   <head>
+    <SEO
+    title="Recovery Fitness"
+    titleTemplate="Training Options"
+    description="A set of training options offered by Samuel Tseng in a form of packages."
+  />
+
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />

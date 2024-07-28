@@ -3,6 +3,7 @@ import { ViewTransitions } from "astro:transitions";
 import serialize from "../../scripts/htmlConverter";
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
+import { SEO } from "astro-seo";
 import "../styles/about/about.css";
 import "../styles/global.css";
 
@@ -20,11 +21,16 @@ const heroImageUrl = data.aboutHeroPhoto ?`url(${apiBaseUrl}${data.aboutHeroPhot
 
 <html lang="en">
   <head>
+    <SEO
+      title="Recovery Fitness"
+      titleTemplate="About"
+      description="The about page of Samuel Tseng the personal trainer which includes more details about him, the qualifications, specialisations and focus area."
+    />
+
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} >
-    <title>About</title>
     <ViewTransitions />
   </head>
   <body>
