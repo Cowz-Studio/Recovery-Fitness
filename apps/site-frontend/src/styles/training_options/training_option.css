@@ -13,22 +13,11 @@
     height: auto;
 }
 
-#training_option1 {
+#training_option1, #training_option2 {
     display: flex;
-
 }
 
-#training_option1 img{
-    object-fit: contain;
-}
-
-#training_option2 {
-    display: flex;
-
-
-}
-
-#training_option2 img{
+#training_option1 img, #training_option2 img{
     object-fit: contain;
 }
 
@@ -71,7 +60,7 @@ h2 {
         align-items: center;
     }
 
-    #training_option1, #training_option2 img,
+    #training_option1 img, #training_option2 img,
     #text-content {
         width: 100%;
         justify-content: center;
