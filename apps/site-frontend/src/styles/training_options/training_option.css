@@ -1,24 +1,35 @@
 #title h1 {
     text-align: center;
-    padding-top: 15vh;
-    padding-bottom: 15vh;
+    padding-top: 10vh;
     padding-left: 30vw;
     padding-right: 30vw;
     font-size: 76px;
 }
 
+#trainingOptionsContainer{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1080px;
+    height: auto;
+}
+
 #training_option1 {
     display: flex;
-    min-height: 50vh;
-    max-height: 50vh;
 
+}
+
+#training_option1 img{
+    object-fit: contain;
 }
 
 #training_option2 {
     display: flex;
-    min-height: 50vh;
-    max-height: 50vh;
 
+
+}
+
+#training_option2 img{
+    object-fit: contain;
 }
 
 #training_option1 img, #training_option2 img {
@@ -42,8 +53,6 @@ h2 {
 /* Media Queries for Mobile Optimization */
 @media (max-width: 768px) {
     #title h1 {
-        padding-top: 25vh;
-        padding-bottom: 10vh;
         padding-left: 10vw;
         padding-right: 10vw;
         font-size: 48px;
@@ -52,15 +61,11 @@ h2 {
     #training_option1 {
         flex-direction: column;
         align-items: center;
-        max-height: 100vh;
-        min-height: 100vh;
     }
 
     #training_option2 {
         flex-direction: column-reverse;
         align-items: center;
-        max-height: 100vh;
-        min-height: 100vh;
     }
 
     #training_option1, #training_option2 img,
@@ -70,20 +75,10 @@ h2 {
         justify-content: center;
     }
 
-    #training_option1 img {
-        width: 100%;
-        height: auto;
-    }
-
-    #training_option2 img {
-        width: 100%;
-        height: auto;
-    }
 }
 
 @media (max-width: 480px) {
     #title h1 {
-        padding-bottom: 8vh;
         padding-left: 5vw;
         padding-right: 5vw;
         font-size: 32px;
@@ -98,7 +93,6 @@ h2 {
 /* Specific Styles for Devices with Max Width of 360px */
 @media (max-width: 360px) {
     #title h1 {
-        padding-bottom: 5vh;
 
         font-size: 24px;
     }

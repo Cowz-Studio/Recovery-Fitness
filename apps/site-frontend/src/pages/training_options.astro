@@ -1,9 +1,9 @@
 ---
+import { SEO } from "astro-seo";
 import { ViewTransitions } from "astro:transitions";
 import serialize from "../../scripts/htmlConverter";
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
-import { SEO } from "astro-seo";
 import "../styles/global.css";
 import "../styles/training_options/training_option.css";
 
@@ -35,29 +35,33 @@ const data = await fetch(`${apiBaseUrl}/api/globals/trainingOptions/`).then((res
     <div id="title">
       <h1>MY TRAINING OPTIONS</h1>
     </div>
-    {
-      data.trainingOptions?.map((trainingOption: any, index: number) => (
-        index % 2 === 0 ?(
-        <div id="training_option1">
-          <img src={`${apiBaseUrl}${trainingOption.image.url}`} alt={`${apiBaseUrl}${trainingOption.image.alt}`} />
-          <div id="text-content">
-            <h2>{trainingOption.title}</h2>
-            <p set:html={serialize(trainingOption.description)}/>
-           
+    <div id="trainingOptionsContainer">
+      {
+        data.trainingOptions?.map((trainingOption: any, index: number) => (
+          index % 2 === 0 ?(
+          <div id="training_option1">
+            <img src={`${apiBaseUrl}${trainingOption.image.url}`} alt={`${apiBaseUrl}${trainingOption.image.alt}`} />
+            <div id="text-content">
+              <h2>{trainingOption.title}</h2>
+              <p set:html={serialize(trainingOption.description)}/>
+             
+            </div>
           </div>
-        </div>
-        ) : (
-        <div id="training_option2">
-          <div id="text-content">
-            <h2>{trainingOption.title}</h2>
-            <p set:html={serialize(trainingOption.description)}/>  
+          ) : (
+          <div id="training_option2">
+            <div id="text-content">
+              <h2>{trainingOption.title}</h2>
+              <p set:html={serialize(trainingOption.description)}/>  
+            </div>
+            <img src={`${apiBaseUrl}${trainingOption.image.url}`} alt={`${apiBaseUrl}${trainingOption.image.alt}`}/>
           </div>
-          <img src={`${apiBaseUrl}${trainingOption.image.url}`} alt={`${apiBaseUrl}${trainingOption.image.alt}`}/>
-        </div>
-        )
-        )
-      ) 
-    }
+          )
+          )
+        ) 
+      }
+
+    </div>
+    
     <Footer></Footer>
   </body>
 </html>
