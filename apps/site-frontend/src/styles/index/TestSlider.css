@@ -20,6 +20,7 @@
 }
 
 .text-slider p {
+    text-transform: uppercase; /* Ensure text is always uppercase */
     margin-right: 50px;
     flex-shrink: 0;
     font-size: 96px;

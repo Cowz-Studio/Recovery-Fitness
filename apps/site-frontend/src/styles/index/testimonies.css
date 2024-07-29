@@ -1,3 +1,4 @@
+/* General styling for testimonies section */
 #testimonies {
     display: flex;
     flex-direction: column;
@@ -7,34 +8,55 @@
     padding: 20px 0;
     width: 100%;
     text-align: center;
-}
-
-
-#test-img {
+  }
+  
+  /* Styling for testimonial images */
+  #test-img {
     width: 30%;
     height: auto;
     border-radius: 5%;
     object-fit: cover;
     box-shadow: 3px 3px 10px rgb(175, 175, 175);
-}
-
-#testimony1 {
+  }
+  
+  /* Layout for testimonies */
+  #testimony1, #testimony2 {
     display: flex;
     align-items: center;
     justify-content: space-around;
-}
-
-#testimony2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-
-#testimonies p {
+  }
+  
+  /* Styling for testimonial text */
+  #testimonies p {
     font-size: 26px;
-}
-
-#testimonies h1 {
+  }
+  
+  /* Styling for testimonial heading */
+  #testimonies h1 {
     font-size: 50px;
-}
+  }
+  
+  /* Media Queries for Mobile Optimization */
+  @media (max-width: 768px) {
+    /* Adjusting the flex-direction to column for smaller screens */
+    #testimony1, #testimony2 {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    /* Adjusting the width of images for smaller screens */
+    #test-img {
+      width: 80%; /* Increase the width for better visibility on smaller screens */
+      margin-bottom: 10px; /* Add some space below the image */
+    }
+  
+    /* Adjusting the font size for smaller screens */
+    #testimonies p {
+      font-size: 20px; /* Smaller font size for readability */
+    }
+  
+    /* Adjusting the font size for the heading on smaller screens */
+    #testimonies h1 {
+      font-size: 36px; /* Smaller font size for readability */
+    }
+  }

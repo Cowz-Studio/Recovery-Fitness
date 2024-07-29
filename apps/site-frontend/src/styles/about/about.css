@@ -52,6 +52,7 @@
 #bio-desc {
   width:90%;
   margin: auto;
+  font-size: 25px;
   
 }
 
@@ -64,12 +65,18 @@
 
 /* Media Queries for Mobile Optimization *//* Media Queries for Mobile Optimization */
 @media (max-width: 768px) {
+
+  .parallax {
+    background-attachment: scroll; /* Remove fixed attachment for mobile */
+  }
+
+
   #navbar-index {
       width: 100%;
   }
 
   #img-gallery h1 {
-      font-size: 48px;
+      font-size: 35px;
       margin: 5vw;
   }
 
@@ -87,6 +94,7 @@
   #bio-desc {
       align-items: center;
       text-align: left; /* Center text within the bio description */
+      font-size: 18px;
   }
 
 
