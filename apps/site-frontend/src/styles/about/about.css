@@ -6,6 +6,10 @@
   z-index: 1000; /* Make sure this is higher than the parallax image */
 }
 
+#logo{
+  color: white;
+}
+
 #img-gallery {
   position: relative;
   overflow: hidden;
