@@ -50,6 +50,10 @@ const InstagramPosts = ({ accessToken }) => {
     }
   };
 
+  const handleVideoLoad = (event) => {
+    console.log('Video loaded:', event.target.src);
+  };
+
   return (
     <div className="instagram-posts">
       {posts.length > 0 ? (
@@ -61,8 +65,10 @@ const InstagramPosts = ({ accessToken }) => {
                 <video
                   muted
                   loop
+                  playsInline
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
+                  onLoadedData={handleVideoLoad}
                 >
                   <source src={post.media_url} type="video/mp4" />
                   <track kind="captions" srcLang="en" label="English captions" />
