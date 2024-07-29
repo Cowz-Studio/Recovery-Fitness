@@ -1,8 +1,8 @@
 ---
-import Footer from "../components/Footer.astro";
-import Navigation from '../components/Navigation.astro';
 import { ViewTransitions } from "astro:transitions";
 import { SEO } from "astro-seo";
+import Footer from "../components/Footer.astro";
+import Navigation from '../components/Navigation.astro';
 import '../styles/contact/contact.css';
 import '../styles/global.css';
 
@@ -91,6 +91,8 @@ const dataHomepage= await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((res
         e.preventDefault();
         if (!form.checkValidity()) {
           form.querySelectorAll(":invalid")[0].focus();
+          document.getElementById("result").style.color = "red"
+          result.innerHTML = "Please fill the form in its entirety with details in the correct format!"
           return;
         }
         const formData = new FormData(form);
@@ -98,6 +100,7 @@ const dataHomepage= await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((res
         const json = JSON.stringify(object);
 
         result.innerHTML = "Sending...";
+        document.getElementById("result").style.color = "black"
 
         fetch("https://api.web3forms.com/submit", {
           method: "POST",
