@@ -76,17 +76,9 @@
       padding-top: 1em;
   }
 
-  #bio-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; /* Ensure text is centered */
-  }
-
   #bio-desc {
       width: 100%;
-      text-align: center; /* Center text within the bio description */
-      padding: 0;
+      padding: 5vw;
   }
 
   #bio-quali {
