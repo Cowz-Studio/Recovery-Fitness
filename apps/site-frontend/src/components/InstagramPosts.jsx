@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/index/InstagramPost.css';
 
-
 /**
  * InstagramPosts Component
  * 
@@ -38,15 +37,23 @@ const InstagramPosts = ({ accessToken }) => {
     fetchInstagramPosts();
   }, [accessToken]);
 
+  const isMobile = window.matchMedia('(max-width: 767px)').matches;
+
   return (
     <div className="instagram-posts">
       {posts.length > 0 ? (
-        posts.map(post => (
+        posts.map((post) => (
           <div key={post.id} className="instagram-post">
             <a href={post.permalink} target="_blank" rel="noopener noreferrer">
               {post.media_type === 'IMAGE' && <img src={post.media_url} alt={post.caption} />}
               {post.media_type === 'VIDEO' && (
-                <video autoPlay muted loop>
+                <video
+                  autoPlay={!isMobile}
+                  muted
+                  loop
+                  playsInline
+                  controls={isMobile} // Show controls on mobile to allow play
+                >
                   <source src={post.media_url} type="video/mp4" />
                   <track kind="captions" srcLang="en" label="English captions" />
                   Your browser does not support the video tag.
