@@ -16,6 +16,7 @@ import '../styles/index/InstagramPost.css';
 
 const InstagramPosts = ({ accessToken }) => {
   const [posts, setPosts] = useState([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const fetchInstagramPosts = async () => {
@@ -35,9 +36,18 @@ const InstagramPosts = ({ accessToken }) => {
     };
 
     fetchInstagramPosts();
-  }, [accessToken]);
 
-  const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const checkIsMobile = () => {
+      setIsMobile(window.matchMedia('(max-width: 767px)').matches);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, [accessToken]);
 
   return (
     <div className="instagram-posts">
@@ -52,7 +62,6 @@ const InstagramPosts = ({ accessToken }) => {
                   muted
                   loop
                   playsInline
-                  controls={isMobile} // Show controls on mobile to allow play
                 >
                   <source src={post.media_url} type="video/mp4" />
                   <track kind="captions" srcLang="en" label="English captions" />
