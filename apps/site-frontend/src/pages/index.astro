@@ -57,7 +57,7 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
           <h2 set:text={dataAbout.summaryAboutContent}/>
           <a href="/about"><button type="button">LEARN MORE ABOUT SAMUEL TSENG</button></a>
         </div>
-        <img id="about-img" src={`${apiBaseUrl}${dataHomepage.trainerPhoto.url}`} />
+        <img id="about-img" src={`${apiBaseUrl}${dataHomepage.trainerPhoto.url}`} alt={`${apiBaseUrl}${dataHomepage.trainerPhoto.alt}`}/>
       </div>
     </div>
 
@@ -78,7 +78,7 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
         dataTestimonials.testimony?.map((testimony: any, index: any) => (
           index % 2 === 0 ? (
             <div id="testimony1" class="hidden">
-              <img id="test-img" src={`${apiBaseUrl}${testimony.image.url}`} />
+              <img id="test-img" src={`${apiBaseUrl}${testimony.image.url}`} alt={`${apiBaseUrl}${testimony.image.alt}`}/>
               <div id="test-text">
                 <div set:html={serialize(testimony.description)} />
               </div>
@@ -88,7 +88,7 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
               <div id="test-text">
                 <div set:html={serialize(testimony.description)} />
               </div>
-              <img id="test-img" src={`${apiBaseUrl}${testimony.image.url}`} />
+              <img id="test-img" src={`${apiBaseUrl}${testimony.image.url}`} alt={`${apiBaseUrl}${testimony.image.alt}`} />
             </div>
           )
         ))

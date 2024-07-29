@@ -39,7 +39,7 @@ const data = await fetch(`${apiBaseUrl}/api/globals/trainingOptions/`).then((res
       data.trainingOptions?.map((trainingOption: any, index: number) => (
         index % 2 === 0 ?(
         <div id="training_option1">
-          <img src={`${apiBaseUrl}${trainingOption.image.url}`} />
+          <img src={`${apiBaseUrl}${trainingOption.image.url}`} alt={`${apiBaseUrl}${trainingOption.image.alt}`} />
           <div id="text-content">
             <h2>{trainingOption.title}</h2>
             <p set:html={serialize(trainingOption.description)}/>
@@ -52,7 +52,7 @@ const data = await fetch(`${apiBaseUrl}/api/globals/trainingOptions/`).then((res
             <h2>{trainingOption.title}</h2>
             <p set:html={serialize(trainingOption.description)}/>  
           </div>
-          <img src={`${apiBaseUrl}${trainingOption.image.url}`} />
+          <img src={`${apiBaseUrl}${trainingOption.image.url}`} alt={`${apiBaseUrl}${trainingOption.image.alt}`}/>
         </div>
         )
         )
