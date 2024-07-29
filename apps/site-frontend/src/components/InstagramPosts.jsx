@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/index/InstagramPost.css';
 
+
 /**
  * InstagramPosts Component
  * 
@@ -37,39 +38,15 @@ const InstagramPosts = ({ accessToken }) => {
     fetchInstagramPosts();
   }, [accessToken]);
 
-  const handleMouseEnter = (event) => {
-    if (!window.matchMedia('(max-width: 767px)').matches) {
-      event.target.play();
-    }
-  };
-
-  const handleMouseLeave = (event) => {
-    if (!window.matchMedia('(max-width: 767px)').matches) {
-      event.target.pause();
-      event.target.currentTime = 0;
-    }
-  };
-
-  const handleVideoLoad = (event) => {
-    console.log('Video loaded:', event.target.src);
-  };
-
   return (
     <div className="instagram-posts">
       {posts.length > 0 ? (
-        posts.map((post) => (
+        posts.map(post => (
           <div key={post.id} className="instagram-post">
             <a href={post.permalink} target="_blank" rel="noopener noreferrer">
               {post.media_type === 'IMAGE' && <img src={post.media_url} alt={post.caption} />}
               {post.media_type === 'VIDEO' && (
-                <video
-                  muted
-                  loop
-                  playsInline
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onLoadedData={handleVideoLoad}
-                >
+                <video autoPlay muted loop>
                   <source src={post.media_url} type="video/mp4" />
                   <track kind="captions" srcLang="en" label="English captions" />
                   Your browser does not support the video tag.
