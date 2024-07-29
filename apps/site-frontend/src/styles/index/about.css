@@ -15,6 +15,7 @@
 
 #about h2 {
     font-weight:300;
+    
 }
 
 #about h1 {
@@ -29,6 +30,7 @@
     width: 80%;
     
 }
+
 
 /* Media Queries for Mobile Optimization */
 @media (max-width: 768px) {

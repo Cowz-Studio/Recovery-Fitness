@@ -66,16 +66,6 @@ const heroImageUrl = data.aboutHeroPhoto ?`url(${apiBaseUrl}${data.aboutHeroPhot
               }
             </ul> 
           </div>
-          <div id="quali">
-            <h2>Focus Area</h2>
-            <ul>
-              {
-                data.focusAreas?.map((focusArea: any) => (
-                  <li set:text={focusArea.title}/>
-                ))  
-              }
-            </ul>
-          </div>
         </div>
       </div>
     </div>     
