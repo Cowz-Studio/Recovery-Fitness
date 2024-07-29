@@ -19,6 +19,8 @@ const apiBaseUrl = import.meta.env.API_BASE_URL;
 const dataAbout = await fetch(`${apiBaseUrl}/api/globals/about/`).then((res) => res.json());
 const dataHomepage = await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((res) => res.json());
 const dataTestimonials = await fetch(`${apiBaseUrl}/api/globals/testimonials/`).then((res) => res.json());
+const data =  await fetch(`${apiBaseUrl}/api/globals/about/`).then((res) => res.json()); 
+
 
 const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
 ---
@@ -45,6 +47,7 @@ const colours = ['#028391', '#F6DCAC', '#FAA968', '#F85525'];
         <source src={`${apiBaseUrl}${dataHomepage.hero.url}`} type="video/mp4">
         Your browser does not support the video type
       </video>
+      <img src={`${apiBaseUrl}${data.aboutHeroPhoto.url}`} alt={`${apiBaseUrl}${data.aboutHeroPhoto.alt}`}>
     </div>
 
     <div id="about" class="hidden">
