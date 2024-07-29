@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import '../styles/index/InstagramPost.css';
 
 /**
@@ -17,6 +17,7 @@ import '../styles/index/InstagramPost.css';
 const InstagramPosts = ({ accessToken }) => {
   const [posts, setPosts] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
+  const videoRefs = useRef([]);
 
   useEffect(() => {
     const fetchInstagramPosts = async () => {
@@ -49,19 +50,54 @@ const InstagramPosts = ({ accessToken }) => {
     };
   }, [accessToken]);
 
+  useEffect(() => {
+    if (isMobile) {
+      const handleIntersection = (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(handleIntersection, {
+        threshold: 0.5, // Adjust as needed
+      });
+
+      videoRefs.current.forEach((video) => {
+        if (video) {
+          observer.observe(video);
+        }
+      });
+
+      return () => {
+        videoRefs.current.forEach((video) => {
+          if (video) {
+            observer.unobserve(video);
+          }
+        });
+      };
+    }
+  }, [isMobile, posts]);
+
   return (
     <div className="instagram-posts">
       {posts.length > 0 ? (
-        posts.map((post) => (
+        posts.map((post, index) => (
           <div key={post.id} className="instagram-post">
             <a href={post.permalink} target="_blank" rel="noopener noreferrer">
               {post.media_type === 'IMAGE' && <img src={post.media_url} alt={post.caption} />}
               {post.media_type === 'VIDEO' && (
                 <video
-                  autoPlay={!isMobile}
+                  ref={(el) => (videoRefs.current[index] = el)}
                   muted
                   loop
                   playsInline
+                  autoPlay={!isMobile}
+                  controls={!isMobile}
                 >
                   <source src={post.media_url} type="video/mp4" />
                   <track kind="captions" srcLang="en" label="English captions" />
