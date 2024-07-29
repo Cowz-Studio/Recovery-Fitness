@@ -97,7 +97,6 @@ const InstagramPosts = ({ accessToken }) => {
                   loop
                   playsInline
                   autoPlay={!isMobile}
-                  controls={!isMobile}
                 >
                   <source src={post.media_url} type="video/mp4" />
                   <track kind="captions" srcLang="en" label="English captions" />
