@@ -50,8 +50,9 @@
 }
 
 #bio-desc {
-  width:100%;
-  padding: 0 3vw;
+  width:90%;
+  margin: auto;
+  
 }
 
 
@@ -84,10 +85,8 @@
   }
 
   #bio-desc {
-      width: 100%;
       align-items: center;
       text-align: left; /* Center text within the bio description */
-      padding: 0;
   }
 
 
