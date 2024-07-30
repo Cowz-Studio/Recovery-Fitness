@@ -82,7 +82,7 @@ const dataHomepage= await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((res
 
   // use astro:page-load event if you are using View Transitions
 
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("astro:page-load", () => {
   
       const form = document.getElementById("form");
       const result = document.getElementById("result");
