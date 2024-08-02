@@ -12,7 +12,6 @@ const apiBaseUrl = import.meta.env.API_BASE_URL;
 const data = await fetch(`${apiBaseUrl}/api/globals/socials/`).then((res) => res.json());
 const dataHomepage= await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((res) => res.json());
 
-
 ---
 
 <html lang="en">
@@ -63,6 +62,9 @@ const dataHomepage= await fetch(`${apiBaseUrl}/api/globals/homepage/`).then((res
 
         <label for="subject">Subject<span id="required_star">*</span></label>
         <input type="text" id="subject" name="subject" required>
+
+        <label for="phone">Phone Number (optional)</label>
+        <input type="tel" id="phone" name="phone">
 
         <label for="message">Message<span id="required_star">*</span></label>
         <textarea id="message" name="message" required/>
