@@ -1,9 +1,9 @@
 ---
+import { SEO } from "astro-seo";
 import { ViewTransitions } from "astro:transitions";
 import serialize from "../../scripts/htmlConverter";
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
-import { SEO } from "astro-seo";
 import "../styles/about/about.css";
 import "../styles/global.css";
 
@@ -24,7 +24,7 @@ const heroImageUrl = data.aboutHeroPhoto ?`url(${apiBaseUrl}${data.aboutHeroPhot
     <SEO
       title="Recovery Fitness"
       titleTemplate="About"
-      description="The about page of Samuel Tseng the personal trainer which includes more details about him, the qualifications, specialisations and focus area."
+      description="Sam is a highly dedicated personal trainer, driven by a passion for helping clients achieve a healthier lifestyle. He possesses a wealth of knowledge that caters to both beginners and seasoned gym-goers alike. Sam specializes in strength and conditioning, weight loss, and overall fitness maintenance. With a degree in Exercise Sport Science, he crafts professionally tailored plans that ensure his clients’ success. His approach emphasizes personalized, goal-oriented training, ensuring that every client can elevate their potential and transform their aspirations into tangible results. Elevate Your Potential with Sam: Where Goals Become Gains!"
     />
 
     <meta charset="utf-8" />
