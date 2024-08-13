@@ -1,11 +1,13 @@
+import react from "@astrojs/react";
 import { defineConfig } from "astro/config";
 
-import react from "@astrojs/react";
+import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [react()],
-	prefetch: {
-		prefetchAll: true,
-	},
+  site: 'https://recovery-fitness.club/',
+  integrations: [react(), robotsTxt()],
+  prefetch: {
+    prefetchAll: true
+  }
 });
