@@ -74,3 +74,20 @@
     transform: translate(-50%, -50%);
     z-index: -2;
 }
+
+#about-button{
+    margin-top: 1rem;
+    background-color: #BE82B9;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#about-button:hover{
+    background-color: #A35E8A;
+}
+
